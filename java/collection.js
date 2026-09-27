@@ -13,9 +13,11 @@ function updateCardBorders() {
     return !card.classList.contains("is-hidden");
   });
 
-  // 보이는 카드 중 3, 6, 9... 번째만 오른쪽 선 제거
+  const columns = window.innerWidth <= 640 ? 1 : window.innerWidth <= 1024 ? 2 : 3;
+
+  // 현재 화면의 열 수를 기준으로 각 행의 마지막 선 제거
   visibleCards.forEach((card, index) => {
-    if ((index + 1) % 3 === 0) {
+    if ((index + 1) % columns === 0) {
       card.classList.add("row-end");
     }
   });
@@ -53,6 +55,7 @@ filterButtons.forEach((button) => {
 
 /* 처음 페이지 열었을 때도 계산 */
 updateCardBorders();
+window.addEventListener("resize", updateCardBorders);
 
 const viewToggle = document.getElementById("viewToggle");
 const collectionContent = document.querySelector(".collection-content");
@@ -61,26 +64,28 @@ const listText = document.querySelector(".list-text");
 const cards = document.querySelectorAll(".archive-card");
 const previewImage = document.getElementById("listPreviewImage");
 
-viewToggle.addEventListener("click", (e) => {
-  e.preventDefault();
+if (viewToggle && collectionContent && listText) {
+  viewToggle.addEventListener("click", (e) => {
+    e.preventDefault();
 
-  collectionContent.classList.toggle("list-mode");
+    collectionContent.classList.toggle("list-mode");
 
-  const isList = collectionContent.classList.contains("list-mode");
+    const isList = collectionContent.classList.contains("list-mode");
 
-  listText.textContent = isList ? "Img" : "List";
-});
-
-cards.forEach((card) => {
-  card.addEventListener("mouseenter", () => {
-    if (!collectionContent.classList.contains("list-mode")) {
-      return;
-    }
-
-    const cardImage = card.querySelector(".archive-image img");
-
-    if (cardImage) {
-      previewImage.src = cardImage.src;
-    }
+    listText.textContent = isList ? "Img" : "List";
   });
-});
+
+  cards.forEach((card) => {
+    card.addEventListener("mouseenter", () => {
+      if (!collectionContent.classList.contains("list-mode")) {
+        return;
+      }
+
+      const cardImage = card.querySelector(".archive-image img");
+
+      if (cardImage && previewImage) {
+        previewImage.src = cardImage.src;
+      }
+    });
+  });
+}
