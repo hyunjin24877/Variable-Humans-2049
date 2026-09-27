@@ -1,12 +1,109 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="0; url=./collection.html">
     <title>Variable Humans</title>
+    <style>
+        * { box-sizing: border-box; }
+        html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: #fff; }
+        .landing { position: fixed; inset: 0; overflow: hidden; display: grid; place-items: center; }
+        .landing svg { width: 100%; height: 100%; overflow: visible; }
+        .skip { position: fixed; left: 16px; bottom: 16px; padding: 10px; color: #000; background: #fff; transform: translateY(150%); }
+        .skip:focus { transform: none; }
+        @media (prefers-reduced-motion: reduce) { .landing svg { opacity: 1; } }
+    </style>
 </head>
 <body>
-    <a href="./collection.html">View Collection</a>
+    <main class="landing" aria-label="Variable Humans">
+        <svg id="stage" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+                <filter id="inflate" x="-60%" y="-60%" width="220%" height="220%" color-interpolation-filters="sRGB">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.006 0.009" numOctaves="2" seed="8" result="air"/>
+                    <feDisplacementMap id="pressure" in="SourceGraphic" in2="air" scale="0" xChannelSelector="R" yChannelSelector="G"/>
+                </filter>
+            </defs>
+            <g id="balloon" filter="url(#inflate)">
+                <image id="logo" href="./img/logo-2.svg" preserveAspectRatio="none"/>
+            </g>
+        </svg>
+    </main>
+    <a class="skip" href="./collection.html">Collection 바로 보기</a>
+    <noscript><style>.skip { transform: none; }</style></noscript>
+    <script>
+        (() => {
+            const stage = document.getElementById('stage');
+            const logo = document.getElementById('logo');
+            const balloon = document.getElementById('balloon');
+            const pressure = document.getElementById('pressure');
+            const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+            const go = () => location.replace('./collection.html');
+            const smooth = t => t * t * (3 - 2 * t);
+            let width, height, initialWidth, initialHeight;
+            function measure() {
+                width = innerWidth;
+                height = innerHeight;
+                stage.setAttribute('viewBox', `0 0 ${width} ${height}`);
+                initialHeight = Math.min(height * 0.4, 340, width * 0.7 * 2003.75 / 1328.67);
+                initialWidth = initialHeight * 1328.67 / 2003.75;
+            }
+            function draw(w, h, distortion, twist, opacity = 1) {
+                logo.setAttribute('x', -w / 2);
+                logo.setAttribute('y', -h / 2);
+                logo.setAttribute('width', w);
+                logo.setAttribute('height', h);
+                balloon.setAttribute('transform', `translate(${width / 2} ${height / 2}) rotate(${twist})`);
+                pressure.setAttribute('scale', distortion);
+                balloon.style.opacity = opacity;
+            }
+            measure();
+            draw(initialWidth, initialHeight, 0, 0);
+            addEventListener('resize', measure);
+            // Start only after the SVG is decoded, so the still phase is visible.
+            const asset = new Image();
+            asset.src = './img/logo-2.svg';
+            asset.decode().catch(() => {}).then(() => {
+                if (reduced.matches) { setTimeout(go, 600); return; }
+                const start = performance.now();
+                function frame(now) {
+                    const elapsed = now - start;
+                    if (elapsed >= 2700) { go(); return; }
+                    if (reduced.matches) { go(); return; }
+                    if (elapsed < 450) {
+                        draw(initialWidth, initialHeight, 0, 0);
+                    } else if (elapsed < 2120) {
+                        const t = (elapsed - 450) / 1670;
+                        const air = smooth(t);
+                        // Independent axes: once the top/bottom meet the viewport,
+                        // additional air pushes sideways instead of uniform zoom.
+                        const vertical = Math.min(1, air * 1.45);
+                        const horizontal = Math.pow(air, 1.55);
+                        const contact = Math.max(0, (air - 0.55) / 0.45);
+                        const wobble = Math.sin(t * 12) * Math.sin(Math.PI * t);
+                        draw(
+                            initialWidth + (width * 1.12 - initialWidth) * horizontal + wobble * width * 0.035,
+                            initialHeight + (height * 1.1 - initialHeight) * vertical - wobble * height * 0.018,
+                            Math.min(width, height) * (air * 0.045 + contact * 0.13),
+                            wobble * 2.2
+                        );
+                    } else if (elapsed < 2470) {
+                        const t = (elapsed - 2120) / 350;
+                        const tension = Math.sin(t * Math.PI * 5) * t;
+                        draw(width * (1.12 + t * 0.09 + tension * 0.018),
+                            height * (1.1 + t * 0.035 - tension * 0.014),
+                            Math.min(width, height) * (0.175 + t * 0.07), tension * 0.6);
+                    } else {
+                        const t = (elapsed - 2470) / 230;
+                        const burst = 1 - Math.pow(1 - t, 3);
+                        draw(width * (1.21 + burst * 1.8), height * (1.135 + burst * 1.3),
+                            Math.min(width, height) * (0.245 + burst * 0.75), burst * -5,
+                            Math.pow(1 - t, 2));
+                    }
+                    requestAnimationFrame(frame);
+                }
+                requestAnimationFrame(frame);
+            });
+        })();
+    </script>
 </body>
 </html>
