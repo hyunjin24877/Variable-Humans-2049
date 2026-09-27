@@ -326,3 +326,113 @@ body {
 .detail-note {
     margin: 15px 0 0;
 }
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1024px) {
+    #detail-wrap {
+        margin-right: 24px;
+        margin-left: 24px;
+    }
+
+    body .archive-footer {
+        width: calc(100% - 48px);
+        margin-right: 24px;
+        margin-left: 24px;
+    }
+}
+
+@media (max-width: 640px) {
+    #detail-wrap {
+        display: block;
+
+        height: auto;
+        margin: 61px 16px 0;
+
+        overflow: visible;
+    }
+
+    .detail-side {
+        width: 100%;
+
+        border-right: 0;
+        border-bottom: 2px solid #000;
+    }
+
+    .detail-side-header {
+        padding: 16px 12px;
+        border-bottom: 0;
+    }
+
+    .detail-visual {
+        width: 100%;
+        height: auto;
+
+        border-right: 0;
+        border-bottom: 2px solid #000;
+
+        overflow: hidden;
+    }
+
+    .detail-image {
+        width: 100%;
+        height: auto;
+    }
+
+    .detail-image img {
+        width: 100%;
+        height: auto;
+
+        object-fit: contain;
+    }
+
+    .zoom-box {
+        display: none !important;
+    }
+
+    .detail-arrow {
+        bottom: 12px;
+    }
+
+    .detail-arrow-prev {
+        right: 48px;
+    }
+
+    .detail-arrow-next {
+        right: 12px;
+    }
+
+    .detail-pagination {
+        left: 12px;
+        bottom: 16px;
+    }
+
+    .detail-info {
+        width: 100%;
+        height: auto;
+        padding: 20px 12px 40px;
+
+        overflow: visible;
+    }
+
+    .detail-spec {
+        margin-top: 40px;
+    }
+
+    .detail-spec > div {
+        grid-template-columns: 88px minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    body .archive-footer {
+        grid-template-columns: 1fr;
+        gap: 20px;
+
+        width: calc(100% - 32px);
+        margin: 0 16px 20px;
+        padding: 20px 12px 40px;
+    }
+}
