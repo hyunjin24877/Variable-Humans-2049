@@ -495,16 +495,17 @@ ul.nav-list > li > a {
     #lnbnav {
         justify-content: flex-start;
         padding: 0;
-        overflow-x: auto;
+        overflow: hidden;
     }
 
     ul.nav-list {
-        flex: 0 0 auto;
+        flex: 1 1 auto;
+        min-width: 0;
+        overflow-x: auto;
     }
 
     #changefilter {
-        position: sticky;
-        left: 0;
+        position: relative;
         z-index: 1;
 
         order: -1;
