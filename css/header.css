@@ -476,7 +476,19 @@
     }
 }
 
+.filter-label-mobile {
+    display: none;
+}
+
 @media (max-width: 640px) {
+    .filter-label-desktop {
+        display: none;
+    }
+
+    .filter-label-mobile {
+        display: inline;
+    }
+
     #shopmenu {
         display: none;
     }
