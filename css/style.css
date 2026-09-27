@@ -498,9 +498,22 @@ ul.nav-list > li > a {
         overflow-x: auto;
     }
 
-    ul.nav-list,
-    #changefilter {
+    ul.nav-list {
         flex: 0 0 auto;
+    }
+
+    #changefilter {
+        flex: 1 0 auto;
+    }
+
+    #changefilter > li,
+    #lnbnav #changefilter a {
+        width: 100%;
+    }
+
+    #lnbnav #changefilter a {
+        justify-content: flex-start;
+        text-align: left;
     }
 
     ul.nav-list > li:not(:last-child) {
