@@ -574,13 +574,14 @@
     .search-input {
         position: fixed;
         top: 61px;
-        left: 16px;
+        left: 0;
 
-        width: calc(100vw - 32px);
+        width: 100vw;
         height: 52px;
-        padding: 0 12px;
+        padding: 0 16px;
 
-        border: 2px solid #000;
+        border: 0;
+        border-bottom: 2px solid #000;
         background: #fff;
 
         transform: translateY(-8px);
@@ -593,7 +594,7 @@
     }
 
     #header.search-open .search-input {
-        width: calc(100vw - 32px);
+        width: 100vw;
         transform: translateY(0);
         pointer-events: auto;
     }
