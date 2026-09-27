@@ -532,6 +532,10 @@ ul.nav-list > li > a {
         white-space: nowrap;
     }
 
+    #lnbnav .nav-list > li:first-child .filter-button {
+        border-right: 0;
+    }
+
     .archive-list {
         grid-template-columns: 1fr;
     }
