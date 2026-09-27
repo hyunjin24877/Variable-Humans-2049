@@ -597,10 +597,9 @@
         z-index: 0;
 
         width: 100vw;
-        height: 160px;
+        height: 52px;
 
         background: #fff;
-        border-bottom: 2px solid #000;
 
         opacity: 0;
         transform: scaleY(0);
@@ -707,23 +706,23 @@
 
     .search-input {
         position: fixed;
-        top: 117px;
-        left: 16px;
+        top: 61px;
+        left: 0;
         z-index: 2;
 
-        width: calc(100vw - 32px);
-        height: 44px;
-        padding: 0 40px 0 0;
+        width: 100vw;
+        height: 52px;
+        padding: 0 48px 0 16px;
 
         border: 0;
         border-bottom: 2px solid #000;
         background-color: transparent;
         background-image: url("../img/search.svg");
         background-repeat: no-repeat;
-        background-position: right 4px center;
+        background-position: right 16px center;
         background-size: 24px 24px;
 
-        transform: translateY(-16px);
+        transform: translateY(-8px);
         pointer-events: none;
         transition:
             opacity 0.25s ease,
@@ -735,7 +734,7 @@
     }
 
     #header.search-open .search-input {
-        width: calc(100vw - 32px);
+        width: 100vw;
         transform: translateY(0);
         pointer-events: auto;
     }
