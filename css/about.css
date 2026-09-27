@@ -451,15 +451,7 @@
     }
 
     .about-nav {
-        position: sticky;
-        top: 61px;
-        z-index: 30;
-
-        display: flex;
-        overflow-x: auto;
-
-        border-right: 0;
-        border-bottom: 2px solid #000;
+        display: none;
     }
 
     .about-nav-item {
