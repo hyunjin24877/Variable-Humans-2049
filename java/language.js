@@ -110,6 +110,37 @@ const shopMenu = document.getElementById("shopmenu");
 const viewChangeLink = document.querySelector("#changefilter a");
 let mobileMenuButton = null;
 
+const updateSearchButtonState = () => {
+  if (!header || !searchButton) return;
+
+  const isOpen = header.classList.contains("search-open");
+  searchButton.setAttribute("aria-expanded", String(isOpen));
+  searchButton.setAttribute("aria-controls", "searchInput");
+  searchButton.setAttribute("aria-label", isOpen
+    ? "검색 닫기 / Close search"
+    : "검색 열기 / Open search");
+};
+
+const updateSearchPlaceholder = () => {
+  if (!searchInput) return;
+
+  if (window.innerWidth <= 640) {
+    searchInput.placeholder = currentLanguage === "en"
+      ? "Enter a search term."
+      : "검색어를 입력해 주세요.";
+    return;
+  }
+
+  searchInput.placeholder = currentLanguage === "en"
+    ? "Enter a search term."
+    : "검색어를 입력해주세요.";
+};
+
+updateSearchButtonState();
+updateSearchPlaceholder();
+document.addEventListener("languagechange", updateSearchPlaceholder);
+window.addEventListener("resize", updateSearchPlaceholder);
+
 if (viewChangeLink) {
   viewChangeLink.addEventListener("click", (event) => {
     const usesModifiedClick = event.metaKey || event.ctrlKey || event.shiftKey || event.altKey;
@@ -151,6 +182,7 @@ if (header && shopMenu) {
       resetSearch();
     }
     header.classList.remove("search-open");
+    updateSearchButtonState();
     mobileMenuButton.setAttribute("aria-expanded", String(willOpen));
     mobileMenuButton.setAttribute("aria-label", willOpen
       ? "메뉴 닫기 / Close menu"
@@ -186,6 +218,7 @@ if (header && searchButton && searchInput) {
     mobileMenuButton?.setAttribute("aria-expanded", "false");
     mobileMenuButton?.setAttribute("aria-label", "메뉴 열기 / Open menu");
     header.classList.toggle("search-open");
+    updateSearchButtonState();
 
     if (header.classList.contains("search-open")) {
       searchInput.focus();
@@ -212,7 +245,17 @@ if (header && searchButton && searchInput) {
       header.classList.remove("search-open");
       searchInput.blur();
       resetSearch();
+      updateSearchButtonState();
     }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape" || !header.classList.contains("search-open")) return;
+
+    header.classList.remove("search-open");
+    searchInput.blur();
+    resetSearch();
+    updateSearchButtonState();
   });
 }
 
