@@ -291,6 +291,11 @@
     line-height: 18px;
 }
 
+.timeline-gallery-caption {
+    margin: 4px 0 0;
+    color: #b1afb0;
+}
+
 .observation-card figcaption,
 .research-card figcaption {
     display: flex;
@@ -422,12 +427,19 @@
         border-bottom: 2px solid #000;
     }
 
+    .timeline-card > img {
+        border-bottom: 0;
+    }
+
     .observation-card figcaption,
-    .research-card figcaption,
-    .timeline-card figcaption {
+    .research-card figcaption {
         margin-top: 0;
         min-height: 150px;
         padding: 20px 12px 40px;
+    }
+
+    .timeline-gallery-caption {
+        margin-top: 5px;
     }
 
     .timeline-mobile-gallery-nav {
