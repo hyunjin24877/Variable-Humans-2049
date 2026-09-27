@@ -503,12 +503,14 @@ ul.nav-list > li > a {
     }
 
     #changefilter {
-        flex: 1 0 auto;
-    }
+        position: sticky;
+        left: 0;
+        z-index: 1;
 
-    #changefilter > li,
-    #lnbnav #changefilter a {
-        width: 100%;
+        order: -1;
+        flex: 0 0 auto;
+
+        background: #fff;
     }
 
     #lnbnav #changefilter a {
