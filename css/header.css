@@ -445,8 +445,34 @@
     object-position: center;
 
     transform: translateY(1px);
+    transform-origin: center;
 
-    transition: transform 0.2s ease;
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (hover: hover) {
+    #changefilter a[href$="collection.list.html"]:hover .change {
+        transform: translate(-3px, 1px);
+    }
+
+    #changefilter a[href$="collection.html"]:hover .change {
+        transform: translate(3px, 1px);
+    }
+}
+
+#changefilter a:active .change {
+    transform: translateY(1px) scale(0.82);
+}
+
+#changefilter a.is-switching .change,
+#changefilter a.is-switching:hover .change {
+    transform: translateY(1px) rotate(180deg) scale(0.9);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .change {
+        transition-duration: 0.01ms;
+    }
 }
 
 #changefilter a {

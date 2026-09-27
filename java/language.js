@@ -107,7 +107,24 @@ const searchButton = document.getElementById("searchButton");
 const searchInput = document.getElementById("searchInput");
 const searchItem = document.querySelector(".search-item");
 const shopMenu = document.getElementById("shopmenu");
+const viewChangeLink = document.querySelector("#changefilter a");
 let mobileMenuButton = null;
+
+if (viewChangeLink) {
+  viewChangeLink.addEventListener("click", (event) => {
+    const usesModifiedClick = event.metaKey || event.ctrlKey || event.shiftKey || event.altKey;
+    const reducesMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (usesModifiedClick || reducesMotion) return;
+
+    event.preventDefault();
+    viewChangeLink.classList.add("is-switching");
+
+    window.setTimeout(() => {
+      window.location.href = viewChangeLink.href;
+    }, 300);
+  });
+}
 
 if (header && shopMenu) {
   mobileMenuButton = document.createElement("button");
