@@ -508,10 +508,10 @@ ul.nav-list > li > a {
         position: relative;
         z-index: 1;
 
-        order: -1;
         flex: 0 0 auto;
 
         background: #fff;
+        border-left: 2px solid #000;
     }
 
     #lnbnav #changefilter a {
