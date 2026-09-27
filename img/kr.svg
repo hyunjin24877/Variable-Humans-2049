@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 72 25">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2, .cls-3 {
+        fill: #231f20;
+      }
+
+      .cls-3, .cls-4 {
+        font-family: WantedSans-Regular-KSCpc-EUC-H, 'Wanted Sans';
+        font-size: 17px;
+      }
+
+      .cls-4, .cls-5 {
+        fill: #fff;
+      }
+
+      .cls-6 {
+        clip-path: url(#clippath-1);
+      }
+
+      .cls-7 {
+        clip-path: url(#clippath-3);
+      }
+
+      .cls-8 {
+        clip-path: url(#clippath-2);
+      }
+
+      .cls-9 {
+        opacity: .3;
+      }
+
+      .cls-10 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-11 {
+        letter-spacing: -.04em;
+      }
+
+      .cls-12 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="cls-1" width="72" height="25"/>
+    </clipPath>
+    <clipPath id="clippath-1">
+      <rect class="cls-1" width="72" height="25"/>
+    </clipPath>
+    <clipPath id="clippath-2">
+      <rect class="cls-1" width="72" height="25"/>
+    </clipPath>
+    <clipPath id="clippath-3">
+      <rect class="cls-1" x="31" y="-4.29" width="109.53" height="27.81"/>
+    </clipPath>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g class="cls-12">
+      <g class="cls-6">
+        <path class="cls-2" d="M12.5,0C5.6,0,0,5.6,0,12.5s5.6,12.5,12.5,12.5h47c6.9,0,12.5-5.6,12.5-12.5S66.4,0,59.5,0H12.5Z"/>
+        <path class="cls-5" d="M12.41,3C7.21,3,3,7.22,3,12.41s4.21,9.41,9.41,9.41h12.17c5.2,0,9.41-4.21,9.41-9.41S29.78,3,24.59,3h-12.17Z"/>
+      </g>
+      <text class="cls-3" transform="translate(8.5 18.25)"><tspan class="cls-10" x="0" y="0">K</tspan><tspan x="9.75" y="0">R</tspan></text>
+      <g class="cls-8">
+        <g class="cls-9">
+          <g class="cls-7">
+            <text class="cls-4" transform="translate(40 18.25)"><tspan class="cls-11" x="0" y="0">E</tspan><tspan x="8.8" y="0">G</tspan></text>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

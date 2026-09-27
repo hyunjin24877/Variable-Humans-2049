@@ -1,0 +1,760 @@
+* {
+    box-sizing: border-box;
+}
+
+html { 
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+    /* [수정 1] aktiv-grotesk -> VariableHuman 으로 변경 */
+    font-family: "VariableHuman", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+
+/* wrap */
+
+#wrap {
+    padding-top: 61px;
+}
+
+.inner {
+    width: calc(100% - 80px);
+    margin: 0 40px;
+
+    border-left: 2px solid #000;
+    border-right: 2px solid #000;
+
+    box-sizing: border-box;
+    height: fit-content;
+}
+
+/* lnb navigation */
+
+#lnbnav {
+    position: sticky;
+    top: 61px;
+    z-index: 50;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 16px;
+
+    background-color: #fff;
+    border-bottom: 2px solid #000;
+}
+
+.nav-list,
+#changefilter {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+ul.nav-list {
+    display: flex;
+    align-items: center;
+    font-size: 0;
+}
+
+ul.nav-list > li {
+    display: block;
+}
+
+ul.nav-list > li:not(:last-child) {
+    margin-right: 16px;
+}
+
+ul.nav-list > li > a {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1;
+
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ... 중략 ... */
+
+/* [수정 3] 중간에 떠있던 grid-column: 3; 제거 및 .detail-visual 정상 배치 */
+.detail-visual {
+    grid-column: span 3;
+    position: relative;
+    min-width: 0;
+    height: 100%;
+    border-right: 2px solid #000;
+    overflow: hidden;
+}
+
+/* 이하 나머지 CSS는 동일 */
+
+
+
+/* archive cards */
+
+.archive-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 0;
+    background: #fff;
+
+     position: relative;
+}
+
+.archive-list::after {
+    content: "";
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 2px;
+    background: #000;
+
+    pointer-events: none;
+}
+
+
+/* 개별 카드 */
+/* =========================
+   archive cards
+========================= */
+
+.archive-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 0;
+    background: #fff;
+}
+
+
+/* 개별 카드 */
+
+.archive-card {
+    min-width: 0;
+    overflow: hidden;
+
+    background: #fff;
+
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+
+    box-sizing: border-box;
+}
+
+/* 현재 보이는 카드 중 3번째 카드 */
+.archive-card.row-end {
+    border-right: 0;
+}
+
+.archive-card.is-hidden {
+    display: none;
+}
+
+
+
+
+.archive-card > a {
+    display: grid;
+    grid-template-rows: 766px minmax(100px, auto);
+
+    width: 100%;
+    height: 100%;
+
+    color: inherit;
+    text-decoration: none;
+}
+
+.archive-info {
+    min-height: 100px;
+    height: 100%;
+
+    padding: 20px 16px;
+
+    box-sizing: border-box;
+    overflow: hidden;
+
+    background: #fff;
+
+    align-self: stretch;
+}
+
+.archive-card:hover > a {
+    grid-template-rows: 766px 180px;
+}
+
+/* =========================
+   LIST MODE
+========================= */
+
+.collection-body.list-mode {
+    display: grid;
+    grid-template-columns: 4fr 2fr;
+}
+
+
+/* 왼쪽 4단 */
+.collection-body.list-mode .archive-list {
+    display: block;
+
+    min-width: 0;
+
+    border-right: 2px solid #000;
+}
+
+
+/* 카드 이미지 숨김 */
+.collection-body.list-mode .archive-image {
+    display: none;
+}
+
+
+/* 카드 한 줄 리스트 */
+.collection-body.list-mode .archive-card {
+    display: block;
+
+    width: 100%;
+
+    border-right: 0;
+    border-bottom: 2px solid #000;
+}
+
+
+/* 기존 grid 구조 해제 */
+.collection-body.list-mode .archive-card > a {
+    display: block;
+
+    width: 100%;
+    height: auto;
+}
+
+
+/* 리스트 정보 영역 */
+.collection-body.list-mode .archive-info {
+    min-height: 78px;
+    height: auto;
+
+    padding: 16px;
+
+    overflow: hidden;
+}
+
+
+/* 리스트에서 설명은 안 보임 */
+.collection-body.list-mode .archive-desc {
+    display: none;
+}
+
+
+/* hover해도 높이 변하지 않음 */
+.collection-body.list-mode .archive-card:hover > a {
+    display: block;
+}
+
+
+/* 오른쪽 2단 이미지 */
+.collection-body.list-mode .list-preview {
+    display: block;
+
+    min-width: 0;
+    height: calc(100vh - 122px);
+
+    position: sticky;
+    top: 122px;
+
+    background: #fff;
+
+    overflow: hidden;
+}
+
+
+.collection-body.list-mode .list-preview img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center;
+}
+
+
+
+
+/* =========================
+   image
+========================= */
+
+/* 이미지 영역 */
+.archive-image {
+    width: 100%;
+    height: 766px;
+
+    overflow: hidden;
+    box-sizing: border-box;
+
+    background: #fff;
+    border-bottom: 2px solid #000;
+}
+
+
+/* 실제 이미지 */
+.archive-image img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    transition: opacity 0.35s ease;
+}
+
+
+/* hover */
+.archive-card:hover .archive-image img {
+    opacity: 0.3;
+}
+
+/* =========================
+   information
+========================= */
+/* information box */
+
+.archive-info {
+    position: relative;
+
+    min-height: 100px;
+    height: 100%;
+
+    padding: 20px 16px;
+
+    box-sizing: border-box;
+    overflow: hidden;
+
+    background: #fff;
+
+    align-self: stretch;
+}
+
+/* 카테고리 */
+
+/* 카테고리 */
+
+.archive-category {
+    margin: 0;
+
+    display: flex;
+    align-items: center;
+    color: #b1afb0;
+}
+
+.archive-category .category-divider {
+    display: block;
+
+    width: 1.5px;
+    height: 12px;
+
+    margin-left: 6px;
+    margin-right: 6px;
+
+    background: currentColor;
+    flex-shrink: 0;
+}
+
+/* 제목 */
+
+.archive-title {
+    margin: 5px 0 0;
+
+    color: #000;
+
+    font-size: 1.375rem;
+    font-weight: 400;
+    line-height: 1.375rem;
+
+    transition: color 0.35s ease;
+}
+
+
+.archive-card:hover .archive-title {
+    color: #c2c2c2;
+}
+.archive-card:hover > a {
+    grid-template-rows: 766px 180px;
+}
+
+
+/* 설명 */
+
+.archive-desc {
+    margin: 10px 0 0;
+
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+
+    transition:
+        max-height 0.35s ease,
+        opacity 0.35s ease;
+        color: #c2c2c2;
+}
+.archive-card:hover .archive-desc {
+    max-height: 100px;
+    opacity: 1;
+}
+
+
+/* =========================
+   filter
+========================= */
+
+.filter-button {
+    display: flex;
+    align-items: center;
+
+    padding: 20px 0;
+
+    color: #000;
+    text-decoration: none;
+
+    transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+
+/* 현재 선택된 카테고리 */
+.filter-button.active {
+    color: #c2c2c2;
+}
+
+
+/* 선택되지 않은 카테고리 hover */
+.filter-button:not(.active):hover {
+    opacity: 0.3;
+}
+
+
+.archive-card.is-hidden {
+    display: none;
+}
+
+
+
+
+
+/* =========================
+   tablet
+========================= */
+
+@media (max-width: 1024px) {
+
+    .archive-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    /* 3열용 설정 취소 */
+    .archive-card:nth-child(3n) {
+        border-right: 2px solid #000;
+    }
+
+    /* 2열의 마지막 칸 */
+    .archive-card:nth-child(2n) {
+        border-right: 0;
+    }
+
+    .inner {
+        margin: 0 24px;
+    }
+}
+
+
+/* =========================
+   mobile
+========================= */
+
+@media (max-width: 640px) {
+
+    .archive-list {
+        grid-template-columns: 1fr;
+    }
+
+    .archive-card,
+    .archive-card:nth-child(2n),
+    .archive-card:nth-child(3n) {
+        border-right: 0;
+    }
+
+   .archive-footer {
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+    .inner {
+        margin: 0 16px;
+    }
+}
+
+
+/* footer 내부 텍스트 */
+.archive-footer > div {
+    min-width: 0;
+}
+
+
+/* 인스타 / 전화번호 줄바꿈 방지 */
+.archive-footer > div:nth-child(1),
+.archive-footer > div:nth-child(3) {
+    white-space: nowrap;
+}
+
+
+
+/*Collection 상세*/
+
+#detail-wrap {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    min-height: calc(100vh - 61px);
+
+    margin: 0 40px;
+
+    border-left: 2px solid #000;
+    border-right: 2px solid #000;
+}
+
+/* 왼쪽 1단 */
+.detail-side {
+    grid-column: span 1;
+
+    padding: 16px;
+
+    border-right: 2px solid #000;
+}
+
+.detail-side p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 20px;
+    color: #c2c2c2;
+}
+
+/* 중앙 3단 */
+ grid-column: 3;
+
+.detail-image {
+    width: 100%;
+    height: 100%;
+}
+
+.detail-image img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center;
+
+    transition: opacity 0.35s ease;
+}
+
+.detail-image:hover img {
+    opacity: 0.3;
+}
+
+/* 좌우 화살표 */
+.detail-arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+
+    transform: translateY(-50%);
+
+    padding: 16px;
+
+    border: 0;
+    background: transparent;
+
+    font-size: 32px;
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+.detail-arrow-prev {
+    left: 0;
+}
+
+.detail-arrow-next {
+    right: 0;
+}
+
+/* 이미지 번호 */
+.detail-pagination {
+    position: absolute;
+    left: 16px;
+    bottom: 16px;
+
+    display: flex;
+    gap: 8px;
+}
+
+.detail-pagination button {
+    width: 20px;
+    height: 20px;
+
+    padding: 0;
+
+    border: 0;
+    background: #000;
+    color: #fff;
+
+    font-size: 12px;
+    line-height: 20px;
+
+    cursor: pointer;
+}
+
+.detail-pagination button.active {
+    background: #c2c2c2;
+}
+
+/* 오른쪽 2단 */
+.detail-info {
+    grid-column: span 2;
+
+    min-width: 0;
+    padding: 16px;
+}
+
+.detail-category {
+    margin: 0;
+
+    font-size: 16px;
+    line-height: 20px;
+    color: #c2c2c2;
+}
+
+.detail-title {
+    margin: 5px 0 0;
+
+    font-size: 28px;
+    line-height: 34px;
+    font-weight: 400;
+}
+
+.detail-description {
+    margin: 10px 0 0;
+
+    font-size: 16px;
+    line-height: 26px;
+
+    word-break: keep-all;
+}
+
+/* 스펙 표 */
+.detail-spec {
+    margin: 32px 0 0;
+}
+
+.detail-spec > div {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 16px;
+
+    padding: 16px 0;
+
+    border-top: 2px solid #000;
+}
+
+.detail-spec > div:last-child {
+    border-bottom: 2px solid #000;
+}
+
+.detail-spec dt,
+.detail-spec dd {
+    margin: 0;
+
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.detail-spec dt {
+    font-weight: 400;
+}
+
+.detail-view-menu {
+    display: flex;
+    gap: 12px;
+
+    margin-top: 16px;
+}
+
+.detail-view-menu button {
+    padding: 0;
+
+    border: 0;
+    background: transparent;
+
+    font-family: inherit;
+    font-size: 16px;
+    line-height: 20px;
+
+    color: #000;
+    cursor: pointer;
+}
+
+.detail-view-menu button.active {
+    color: #c2c2c2;
+}
+
+.detail-note {
+    margin: 12px 0 0;
+
+    font-size: 14px;
+    line-height: 20px;
+}
+
+
+
+/* List 모드일 때 아이콘 뒤집기 */
+body.list-mode .change {
+    transform: scaleX(-1);
+}
+
+
+
+@media (max-width: 1024px) {
+    .archive-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* 모바일: 1열 */
+@media (max-width: 640px) {
+    .archive-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 1024px) {
+    .inner {
+        margin: 0 24px;
+    }
+}
+
+@media (max-width: 640px) {
+    .inner {
+        margin: 0 16px;
+    }
+}

@@ -1,0 +1,347 @@
+/* ========================================
+   Collection LIST PAGE
+======================================== */
+
+
+/* =========================
+   전체 레이아웃
+   왼쪽 4단 / 오른쪽 2단
+========================= */
+
+.collection-list-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+
+    width: 100%;
+    height: calc(100vh - 122px);
+
+    background: #fff;
+    overflow: hidden;
+
+    /* 전체 맨 아래 선 하나 */
+    border-bottom: 2px solid #000;
+}
+
+
+/* =========================
+   LEFT — LIST
+========================= */
+
+/* 왼쪽 리스트 전체 영역 */
+.collection-list-items {
+    min-width: 0;
+    height: 100%;
+
+    border-right: 2px solid #000;
+    background: #fff;
+
+    /* 왼쪽 리스트만 스크롤 */
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    scrollbar-width: none;
+}
+
+.collection-list-items::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* 각 리스트 항목 */
+.collection-list-item {
+    display: block;
+
+    width: 100%;
+    min-height: 86px;
+
+    padding: 20px 16px;
+
+    border-bottom: 2px solid #000;
+
+    background: #fff;
+    color: #000;
+    text-decoration: none;
+
+    box-sizing: border-box;
+
+    transition: border-color 0.2s ease;
+}
+
+/* 카테고리 */
+
+.collection-list-category {
+    margin: 0;
+
+    color: #c2c2c2;
+
+    font-family: "aktiv-grotesk", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22px;
+}
+
+
+/* 제품명 */
+
+.collection-list-title {
+    margin: 5px 0 0;
+
+    color: #000;
+
+    font-family: "aktiv-grotesk", sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 26px;
+
+    opacity: 1;
+
+    transition: opacity 0.2s ease;
+}
+
+
+/* =========================
+   LIST HOVER
+========================= */
+
+/* 위 카테고리는 그대로 */
+.collection-list-item:hover .collection-list-category {
+    opacity: 1;
+}
+
+
+/* 제품명만 30% */
+.collection-list-item:hover .collection-list-title {
+    opacity: 0.3;
+}
+
+
+/* 아래 선도 30% */
+.collection-list-item:hover {
+    border-bottom-color: rgba(0, 0, 0, 0.3);
+}
+
+
+/* =========================
+   RIGHT — PREVIEW
+========================= */
+
+.collection-list-preview {
+    position: relative;
+
+    min-width: 0;
+    height: 100%;
+
+    background: #fff;
+
+    /* 오른쪽 고정 */
+    overflow: hidden;
+}
+
+
+/* 처음에는 숨김 */
+.preview-content {
+    display: none;
+
+    width: 100%;
+    height: 100%;
+
+    background: #fff;
+}
+
+
+/* hover 시 JS가 is-visible 붙이면 표시 */
+.collection-list-preview.is-visible .preview-content {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* 빈 화면 */
+.preview-empty {
+    position: absolute;
+    inset: 0;
+
+    display: block;
+    background: #fff;
+}
+
+
+/* preview 뜨면 빈 화면 제거 */
+.collection-list-preview.is-visible .preview-empty {
+    display: none;
+}
+
+/* 실제 preview */
+
+.preview-content {
+    display: none;
+}
+
+.collection-list-preview.is-visible .preview-empty {
+    display: none;
+}
+
+.collection-list-preview.is-visible .preview-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.collection-list-item.is-hidden {
+    display: none;
+}
+
+/* =========================
+   PREVIEW IMAGE
+========================= */
+
+.preview-image {
+    width: 618px;
+    height: 700px;
+
+    min-height: 0;
+
+    overflow: hidden;
+
+    border-bottom: 2px solid #000;
+}
+
+
+.preview-image img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+
+/* =========================
+   PREVIEW INFORMATION
+========================= */
+
+.preview-info {
+    flex: 1;
+
+    min-height: 0;
+
+    padding: 20px 16px;
+
+    background: #fff;
+
+    box-sizing: border-box;
+}
+
+
+/* 카테고리 */
+
+.preview-category {
+    margin: 0;
+
+    color: #c2c2c2;
+
+    font-family: "aktiv-grotesk", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 18px;
+}
+
+
+/* 제목 */
+
+.preview-title {
+    margin: 5px 0 0;
+
+    color: #000;
+
+    font-family: "aktiv-grotesk", sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 41px;
+}
+
+
+/* 설명 */
+
+.preview-description {
+    margin: 10px 0 0;
+
+    color: #000;
+
+    font-family: "pretendard", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 32px;
+
+    word-break: keep-all;
+}
+
+html[lang="en"] .preview-description {
+    font-family: "aktiv-grotesk", sans-serif;
+}
+
+
+/* =========================
+   IMG BUTTON
+========================= */
+
+
+
+/* =========================
+   FILTER
+========================= */
+
+.collection-list-item.is-hidden {
+    display: none;
+}
+
+.collection-list-item.is-hidden {
+    display: none;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1024px) {
+
+    .collection-list-layout {
+        grid-template-columns: 3fr 2fr;
+    }
+
+    .collection-list-item {
+        min-height: 80px;
+        padding: 14px;
+    }
+
+    .preview-image {
+        height: 65%;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 640px) {
+
+    .collection-list-layout {
+        display: block;
+    }
+
+    .collection-list-items {
+        border-right: 0;
+    }
+
+    .collection-list-preview {
+        display: none;
+    }
+
+    .collection-list-item {
+        min-height: 76px;
+        padding: 14px 16px;
+    }
+}

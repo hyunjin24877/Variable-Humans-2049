@@ -1,0 +1,169 @@
+/* ========================================
+   FONT
+======================================== */
+
+@import url('https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.1/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css');
+
+/* Pretendard — Korean */
+@font-face {
+    font-family: "pretendard";
+    src: url("../font/Pretendard-Regular.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+/* Aktiv Grotesk — English */
+@font-face {
+    font-family: "aktiv-grotesk";
+    src: url("../font/AkzidGrtskNext-Regular.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+/* ========================================
+   GLOBAL
+======================================== */
+
+html,
+body {
+    font-family: "aktiv-grotesk", "pretendard", sans-serif;
+    font-weight: 400;
+    font-variant-numeric: proportional-nums;
+}
+
+/* ========================================
+   MENU
+======================================== */
+
+/* 모든 페이지의 네비게이션 공통 폰트 */
+.type-nav,
+.type-menu,
+.type-menu-small,
+#header,
+.header-menu > li > a,
+.about-nav-item,
+.timeline-nav-item,
+.detail-side-header p,
+ul.nav-list > li > a,
+#changefilter a,
+.list-text,
+.language-toggle,
+.search-input {
+    font-family: "Wanted Sans Variable", sans-serif;
+}
+
+/* 메인 메뉴 */
+.type-menu {
+    font-size: 20px;
+    line-height: 20px;
+    letter-spacing: 0;
+    font-weight: 400;
+}
+
+
+/* 작은 메뉴 */
+.type-menu-small {
+    font-size: 18px;
+    line-height: 18px;
+    letter-spacing: -0.024em;
+    font-weight: 400;
+}
+
+
+
+/* ========================================
+   COLLECTION
+======================================== */
+
+/* 제품 숫자 / 카테고리 */
+.type-product-number {
+    font-family: "aktiv-grotesk";
+    font-size: 18px;
+    line-height: 18px;
+    letter-spacing: 0;
+    font-weight: 400;
+}
+
+
+/* 제품명 */
+.type-product-name {
+    font-family: "aktiv-grotesk",sans-serif;
+    font-size: 22px;
+    line-height: 32px;
+    letter-spacing: 0;
+    font-weight: 400;
+}
+
+
+/* 제품 설명 */
+.type-product-description {
+    font-family: "pretendard";
+    font-size: 20px;
+    line-height: 32px;
+    letter-spacing: 0;
+    font-weight: 400;
+
+    
+}
+
+html[lang="en"] .type-product-detail-description {
+    font-family: "aktiv-grotesk", sans-serif;
+    font-weight: 400;
+
+    font-size: 21px;
+
+    line-height: 27px;       /* 영문 행간 */
+    letter-spacing: 0; /* 영문 자간 */
+
+    font-weight: 400;}
+
+
+
+/* ========================================
+   PRODUCT DETAIL
+======================================== */
+
+/* 프로덕트 상세 — 제품명 */
+.type-product-name2 {
+    font-family: "aktiv-grotesk";
+    font-size: 28px;
+    line-height: 41px;
+    letter-spacing: 0;
+    font-weight: 400;
+}
+
+
+/* 프로덕트 상세 — 제품 설명 */
+.type-product-detail-description {
+    font-size: 20px;
+    line-height: 32px;
+    letter-spacing: 0;
+    font-weight: 400;
+}
+
+
+/* 프로덕트 상세 — 주석 */
+.type-product-note {
+    font-size: 15px;
+    line-height: 15px;
+    letter-spacing: 0;
+    font-weight: 400;
+    color: #c2c2c2;
+}
+
+/* 소장품 정보 / Spec */
+.type-size {
+    font-family: "aktiv-grotesk", sans-serif;
+    font-size: 18px;
+    line-height: 29px;
+    letter-spacing: 0;
+    font-weight: 400;
+}
+
+.type-en {
+    font-family: "aktiv-grotesk", sans-serif;
+    font-weight: 400;
+    letter-spacing: 0;
+}

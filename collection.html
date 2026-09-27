@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/font.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>variable humans</title>
+</head>
+
+<body>
+   <div id="header">
+
+    <ul class="header-menu type-menu" id="shopmenu">
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./collection.html">Collection</a></li>
+        <li><a href="./timeline.html">Timeline</a></li>
+    </ul>
+
+    <h1>
+        <a href="./collection.html" class="logo-link">
+            <img src="./img/logo.svg" alt="Variable Humans Logo">
+        </a>
+    </h1>
+
+    <ul class="header-menu" id="acountmenu">
+     <li class="search-item">
+
+    <button type="button" class="search-button" id="searchButton">
+        <img class="search" src="./img/search.svg" alt="Search">
+    </button>
+
+    <input
+        type="text"
+        class="search-input"
+        id="searchInput"
+        placeholder="검색어를 입력해주세요."
+    >
+
+</li>
+
+        <li>
+    <button type="button" class="language-toggle" id="languageToggle">
+        <span class="lang-option lang-kr active">KR</span>
+        <span class="lang-option lang-en">EG</span>
+    </button>
+</li>
+    </ul>
+
+</div>
+
+    <main class="collection-main">
+        <div id="wrap">
+            <div class="inner">
+                <div id="lnbnav">
+
+    <!-- 카테고리 필터 -->
+    <ul class="nav-list">
+        <li>
+            <a href="#" class="filter-button active type-menu" data-filter="all">
+                All
+            </a>
+        </li>
+
+        <li>
+            <a href="#" class="filter-button type-menu" data-filter="variable">
+                Variable Assistive Devices
+            </a>
+        </li>
+
+        <li>
+            <a href="#" class="filter-button type-menu" data-filter="adaptive">
+                Adaptive Device
+            </a>
+        </li>
+    </ul>
+
+
+    <!-- Img 버튼 -->
+    <ul id="changefilter">
+        <li>
+            <a href="./collection.list.html">
+
+                <!-- 리스트 페이지에서는 아이콘 반전 -->
+                <img
+                    class="change list-change"
+                    src="./img/change.svg"
+                    alt=""
+                >
+
+                <span class="list-text type-menu">
+                    List
+                </span>
+
+            </a>
+        </li>
+    </ul>
+
+                </div>
+
+                <section class="archive-list">
+                    <article class="archive-card" data-category="variable">
+                        <a href="./01.products.html">
+                            <div class="archive-image">
+                                <img src="./img/collection/1-front.webp" alt="Arm Compression Harness">
+                            </div>
+                            <div class="archive-info">
+                               <p class="archive-category type-product-number">
+                                <span>No.01</span>
+                                <span class="category-divider"></span>
+                                <span>Variable Assistive Devices</span>
+                            </p>
+                               <h2 class="archive-title type-product-name">Arm Compression Harness, 2045</h2>
+                                <p class="archive-desc type-size">
+                                바닥 면적이 제한된 초소형 주거 환경에서, 사용자가 공중에<br>
+                                매달린 구조물 위에 몸을 걸치고 생활할 수 있도록 만들어진 장치
+                            </p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="archive-card" data-category="variable">
+                        <a href="./02.products.html">
+                            <div class="archive-image">
+                                <img src="./img/collection/2-front.webp" alt="Body Pocket Frame">
+                            </div>
+                            <div class="archive-info">
+                                <p class="archive-category type-product-number">
+                                    <span>No.02</span>
+                                    <span class="category-divider"></span>
+                                    <span>Variable Assistive Devices</span>
+                                </p>
+                               <h2 class="archive-title type-product-name">Body Pocket Frame, 2047</h2>
+                                <p class="archive-desc type-size">
+                                    협소한 주거 환경에서도 개인의 소지품과 취미 물품을<br>포기하지 않기 위해 개발된 착용형 수납 장치
+                                </p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="archive-card" data-category="adaptive">
+                        <a href="./03.products.html">
+                            <div class="archive-image">
+                                <img src="./img/collection/3-front.webp" alt="C-Shell Cocoon">
+                            </div>
+                            <div class="archive-info">
+                                <p class="archive-category type-product-number">
+                                    <span>No.03</span>
+                                    <span class="category-divider"></span>
+                                    <span>Adaptive Device</span>
+                                </p>
+                               <h2 class="archive-title type-product-name">C-Shell Cocoon, 2042</h2>
+                                <p class="archive-desc type-size">
+                                    사용자의 신체를 C자 형태로 압축하여 최소한의 부피로<br>장시간 휴식을 유지하도록 개발된 전신 휴식 구조체
+                                </p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="archive-card" data-category="variable">
+                        <a href="./04.products.html">
+                            <div class="archive-image">
+                                <img src="./img/collection/4-front.webp" alt="Collector Sleeve, 2047">
+                            </div>
+                            <div class="archive-info">
+                                <p class="archive-category type-product-number">
+                                    <span>No.04</span>
+                                    <span class="category-divider"></span>
+                                    <span>Variable Assistive Devices</span>
+                                </p>
+                               <h2 class="archive-title type-product-name">Collector Sleeve, 2047</h2>
+                                <p class="archive-desc type-size">
+                                    협소한 주거 환경에서 개인의 수집품과 애장품을 보관하고<br>감상하기 위해 개발된 신체 가변 보조 기구
+                                </p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="archive-card" data-category="adaptive">
+                        <a href="./05.products.html">
+                            <div class="archive-image">
+                                <img src="./img/collection/5-front.webp" alt="Compact Posture Cushion 2044">
+                            </div>
+                            <div class="archive-info">
+                                <p class="archive-category type-product-number">
+                                    <span>No.05</span>
+                                    <span class="category-divider"></span>
+                                    <span>Adaptive Device</span>
+                                </p>
+                               <h2 class="archive-title type-product-name">Compact Posture Cushion, 2044</h2>
+                                <p class="archive-desc type-size">
+                                    압축된 생활 자세를 안정적으로 유지하기 위해 개발된 신체 적응 장치
+                                </p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="archive-card" data-category="variable">
+                        <a href="./06.products.html">
+                            <div class="archive-image">
+                                <img src="./img/collection/6-front.webp" alt="Daily Supply Carrier">
+                            </div>
+                            <div class="archive-info">
+                                <p class="archive-category type-product-number">
+                                    <span>No.06</span>
+                                    <span class="category-divider"></span>
+                                    <span>Variable Assistive Devices</span>
+                                </p>
+                               <h2 class="archive-title type-product-name">Daily Supply Carrier, 2046</h2>
+                                <p class="archive-desc type-size">
+                                    좁은 주거 환경에서 서랍장과 수납장을 줄이기 위해 제작된 착용형 생활 보급 장치
+                                </p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="archive-card" data-category="variable">
+                        <a href="./07.products.html">
+                            <div class="archive-image">
+                                <img src="./img/collection/7-front.webp" alt="Drying Spine">
+                            </div>
+                            <div class="archive-info">
+                                <p class="archive-category type-product-number">
+                                    <span>No.07</span>
+                                    <span class="category-divider"></span>
+                                    <span>Variable Assistive Devices</span>
+                                </p>
+                               <h2 class="archive-title type-product-name">Drying Spine, 2043</h2>
+                                <p class="archive-desc type-size">
+                                    척추와 견갑골을 일시적으로 신전시켜 등의 면적을 넓히고,<br>신체 자체를 세탁물 건조대로 전환하는 장치
+                                </p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="archive-card" data-category="variable">
+                        <a href="./08.products.html">
+                            <div class="archive-image">
+                                <img src="./img/collection/8-front.webp" alt="Elbow Clamp">
+                            </div>
+                            <div class="archive-info">
+                                <p class="archive-category type-product-number">
+                                    <span>No.08</span>
+                                    <span class="category-divider"></span>
+                                    <span>Variable Assistive Devices</span>
+                                </p>
+                               <h2 class="archive-title type-product-name">Elbow Clamp, 2042</h2>
+                                <p class="archive-desc type-size">
+                                    별도의 책상이나 협탁 없이도 다양한 생활 활동을<br>수행하기 위해 개발된 신체 가변 보조 기구
+                                </p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="archive-card" data-category="adaptive">
+                        <a href="./09.products.html">
+                            <div class="archive-image">
+                                <img src="./img/collection/9-front.webp" alt="Fold Dining Harness">
+                            </div>
+                            <div class="archive-info">
+                                <p class="archive-category type-product-number">
+                                    <span>No.09</span>
+                                    <span class="category-divider"></span>
+                                    <span>Adaptive Device</span>
+                                </p>
+                               <h2 class="archive-title type-product-name">Fold Dining Harness, 2041</h2>
+                                <p class="archive-desc type-size">
+                                    식사 공간을 신체 앞으로 이동시키기 위해 개발된 착용형 장치
+                                </p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="archive-card" data-category="adaptive">
+                        <a href="./10.products.html">
+                            <div class="archive-image">
+                                <img src="./img/collection/10-front.webp" alt="Hanging Sleep Sleeve">
+                            </div>
+                            <div class="archive-info">
+                                <p class="archive-category type-product-number">
+                                    <span>No.10</span>
+                                    <span class="category-divider"></span>
+                                    <span>Adaptive Device</span>
+                                </p>
+                               <h2 class="archive-title type-product-name">Hanging Sleep Sleeve, 2042</h2>
+                                <p class="archive-desc type-size">
+                                    벽면을 수면 공간으로 전환하기 위해 개발된 현수형 수면 장치
+                                </p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="archive-card" data-category="adaptive">
+                        <a href="./11.products.html">
+                            <div class="archive-image">
+                                <img src="./img/collection/11-front.webp" alt="Hide Pod">
+                            </div>
+                            <div class="archive-info">
+                                <p class="archive-category type-product-number">
+                                    <span>No.11</span>
+                                    <span class="category-divider"></span>
+                                    <span>Adaptive Device</span>
+                                </p>
+                               <h2 class="archive-title type-product-name">Hide Pod, 2042</h2>
+                                <p class="archive-desc type-size">
+                                    최소한의 면적으로 휴식을 취하기 위한 장치
+                                </p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="archive-card" data-category="variable">
+                        <a href="./12.products.html">
+                            <div class="archive-image">
+                                <img src="./img/collection/12-front.webp" alt="Human Display Cabinet">
+                            </div>
+                            <div class="archive-info">
+                                <p class="archive-category type-product-number">
+                                    <span>No.12</span>
+                                    <span class="category-divider"></span>
+                                    <span>Variable Assistive Devices</span>
+                                </p>
+                               <h2 class="archive-title type-product-name">Human Display Cabinet, 2048</h2>
+                                <p class="archive-desc type-size">
+                                    두 명의 사용자가 하나의 수면 공간을 공유하기 위해 개발된 신체 가변 보조 기구
+                                </p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="archive-card" data-category="variable">
+                        <a href="./13.products.html">
+                            <div class="archive-image">
+                                <img src="./img/collection/13-front.webp" alt="Interlock Sleep Frame">
+                            </div>
+                            <div class="archive-info">
+                                <p class="archive-category type-product-number">
+                                    <span>No.13</span>
+                                    <span class="category-divider"></span>
+                                    <span>Variable Assistive Devices</span>
+                                </p>
+                               <h2 class="archive-title type-product-name">Interlock Sleep Frame, 2044</h2>
+                                <p class="archive-desc type-size">
+                                    초소형 주거 환경에서 두 명의 사용자가 하나의 수면 공간을<br>공유하기 위해 개발된 신체 가변 보조 기구
+                                </p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="archive-card" data-category="variable">
+                        <a href="./14.products.html">
+                            <div class="archive-image">
+                                <img src="./img/collection/14-front.webp" alt="Knee Memory Pod">
+                            </div>
+                            <div class="archive-info">
+                                <p class="archive-category type-product-number">
+                                    <span>No.14</span>
+                                    <span class="category-divider"></span>
+                                    <span>Variable Assistive Devices</span>
+                                </p>
+                               <h2 class="archive-title type-product-name">Knee Memory Pod, 2041</h2>
+                                <p class="archive-desc type-size">
+                                    웅크린 생활 자세를 유지하기 위해 개발된 복합 휴식 장치
+                                </p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="archive-card" data-category="adaptive">
+                        <a href="./15.products.html">
+                            <div class="archive-image">
+                                <img src="./img/collection/15-front.webp" alt="Neck Fold Collar">
+                            </div>
+                            <div class="archive-info">
+                                <p class="archive-category type-product-number">
+                                    <span>No.15</span>
+                                    <span class="category-divider"></span>
+                                    <span>Adaptive Device</span>
+                                </p>
+                               <h2 class="archive-title type-product-name">Neck Fold Collar, 2045</h2>
+                                <p class="archive-desc type-size">
+                                    협소한 주거 환경에서 생활하는 사용자의 시선과 자세를 공간에 맞게<br>재구성하기 위해 개발된 신체 적응 장치
+                                </p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="archive-card" data-category="variable">
+                        <a href="./16.products.html">
+                            <div class="archive-image">
+                                <img src="./img/collection/16-front.webp" alt="Perching Harness">
+                            </div>
+                            <div class="archive-info">
+                                <p class="archive-category type-product-number">
+                                    <span>No.16</span>
+                                    <span class="category-divider"></span>
+                                    <span>Variable Assistive Devices</span>
+                                </p>
+                               <h2 class="archive-title type-product-name">Perching Harness, 2042</h2>
+                                <p class="archive-desc type-size">
+                                    의자를 대체하기 위해 개발된 신체 가변 보조 기구
+                                </p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="archive-card" data-category="adaptive">
+                        <a href="./17.products.html">
+                            <div class="archive-image">
+                                <img src="./img/collection/17-front.webp" alt="Rest Cocoon Unit">
+                            </div>
+                            <div class="archive-info">
+                                <p class="archive-category type-product-number">
+                                    <span>No.17</span>
+                                    <span class="category-divider"></span>
+                                    <span>Adaptive Device</span>
+                                </p>
+                               <h2 class="archive-title type-product-name">Rest Cocoon Unit, 2042</h2>
+                                <p class="archive-desc type-size">
+                                    사용자의 신체를 압축된 자세로 감싸 어디서든 짧은 휴식과<br>수면을 가능하게 하는 휴대형 장치
+                                </p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="archive-card" data-category="adaptive">
+                        <a href="./18.products.html">
+                            <div class="archive-image">
+                                <img src="./img/collection/18-front.webp" alt="Rotating Occupancy Ring">
+                            </div>
+                            <div class="archive-info">
+                                <p class="archive-category type-product-number">
+                                    <span>No.18</span>
+                                    <span class="category-divider"></span>
+                                    <span>Adaptive Device</span>
+                                </p>
+                               <h2 class="archive-title type-product-name">Rotating Occupancy Ring, 2043</h2>
+                                <p class="archive-desc type-size">
+                                    하나의 생활 공간을 여러 용도로 전환하는 장치
+                                </p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="archive-card" data-category="adaptive">
+                        <a href="./19.products.html">
+                            <div class="archive-image">
+                                <img src="./img/collection/19-front.webp" alt="Serpent Coil Mattress">
+                            </div>
+                            <div class="archive-info">
+                                <p class="archive-category type-product-number">
+                                    <span>No.19</span>
+                                    <span class="category-divider"></span>
+                                    <span>Adaptive Device</span>
+                                </p>
+                               <h2 class="archive-title type-product-name">Serpent Coil Mattress, 2041</h2>
+                                <p class="archive-desc type-size">
+                                    최소한의 면적으로 수면을 유지하기 위해 개발된 나선형 신체 적응 장치
+                                </p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="archive-card" data-category="variable">
+                        <a href="./20.products.html">
+                            <div class="archive-image">
+                                <img src="./img/collection/20-front.webp" alt="Shoulder Compression Harness">
+                            </div>
+                            <div class="archive-info">
+                                <p class="archive-category type-product-number">
+                                    <span>No.20</span>
+                                    <span class="category-divider"></span>
+                                    <span>Variable Assistive Devices</span>
+                                </p>
+                               <h2 class="archive-title type-product-name">Shoulder Compression Harness, 2044</h2>
+                                <p class="archive-desc type-size">
+                                    양쪽 어깨를 안쪽으로 압박하여 상체의 폭을 감소시키고,<br>좁은 공간에서도 효율적으로 생활할 수 있도록 개발된 착용형 신체 가변 장치
+                                </p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="archive-card" data-category="variable">
+                        <a href="./21.products.html">
+                            <div class="archive-image">
+                                <img src="./img/collection/21-front.webp" alt="Skirt Wardrobe">
+                            </div>
+                            <div class="archive-info">
+                                <p class="archive-category type-product-number">
+                                    <span>No.21</span>
+                                    <span class="category-divider"></span>
+                                    <span>Variable Assistive Devices</span>
+                                </p>
+                               <h2 class="archive-title type-product-name">Skirt Wardrobe, 2047</h2>
+                                <p class="archive-desc type-size">
+                                    다양한 의류를 보관하기 위해 개발된 착용형 수납 장치
+                                </p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="archive-card" data-category="adaptive">
+                        <a href="./22.products.html">
+                            <div class="archive-image">
+                                <img src="./img/collection/22-front.webp" alt="Spiral Occupancy Tunnel">
+                            </div>
+                            <div class="archive-info">
+                                <p class="archive-category type-product-number">
+                                    <span>No.22</span>
+                                    <span class="category-divider"></span>
+                                    <span>Adaptive Device</span>
+                                </p>
+                               <h2 class="archive-title type-product-name">Spiral Occupancy Tunnel, 2042</h2>
+                                <p class="archive-desc type-size">
+                                    나선형 내부 구조를 따라 사용자의 신체를 단계적으로 굴곡시키며,<br>척추와 골반, 무릎을 하나의 곡선으로 유도하는 장치
+                                </p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="archive-card" data-category="adaptive">
+                        <a href="./23.products.html">
+                            <div class="archive-image">
+                                <img src="./img/collection/23-front.webp" alt="Storage Rest Capsule">
+                            </div>
+                            <div class="archive-info">
+                                <p class="archive-category type-product-number">
+                                    <span>No.23</span>
+                                    <span class="category-divider"></span>
+                                    <span>Adaptive Device</span>
+                                </p>
+                                <h2 class="archive-title type-product-name">Storage Rest Capsule, 2046</h2>
+                                <p class="archive-desc type-size">
+                                    사용자의 휴식 공간을 최소한의 크기로 압축하고,<br>절약된 부피를 개인 물품을 위한 수납 공간으로 전환한 기구
+                                </p>
+                            </div>
+                        </a>
+                    </article>
+
+                    <article class="archive-card" data-category="adaptive">
+                        <a href="./24.products.html">
+                            <div class="archive-image">
+                                <img src="./img/collection/24-front.webp" alt="Wall Nest">
+                            </div>
+                            <div class="archive-info">
+                                <p class="archive-category type-product-number">
+                                    <span>No.24</span>
+                                    <span class="category-divider"></span>
+                                    <span>Adaptive Device</span>
+                                </p>
+                                <h2 class="archive-title type-product-name">Wall Nest, 2041</h2>
+                                <p class="archive-desc type-size">
+                                    벽면을 새로운 거주 공간으로 전환하기 위한 장치
+                                </p>
+                            </div>
+                        </a>
+                    </article>
+                </section>
+            </div>
+        </div>
+
+        <footer class="archive-footer">
+            <div>
+                @Variable_human_exhibition
+            </div>
+            <div>
+                Seoul Museum of Urban Anthropology<br>
+                Seoul, Republic of Korea 04323
+            </div>
+            <div>
+                +82-1234-5678
+            </div>
+        </footer>
+    </main>
+
+    <script src="./java/collection.js"></script>
+    <script src="./java/translations.js"></script>
+    <script src="./java/language.js"></script>
+</body>
+</html>

@@ -1,0 +1,328 @@
+* {
+    box-sizing: border-box;
+}
+
+html { 
+    font-size: 18px;
+}
+
+body {
+    margin: 0;
+    /* 수정: "aktiv-grotesk" 제거 후 통합 폰트 사용 */
+    font-family: "VariableHuman", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+/* 이하 기존 products.css 코드 유지... */
+
+/* wrap */
+
+#wrap {
+    padding-top: 61px;
+}
+
+.inner {
+    margin: 0 40px;
+
+    border-left: 2px solid #000;
+    border-right: 2px solid #000;
+}
+
+#detail-wrap {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+
+    height: calc(100vh - 61px);
+    margin: 61px 40px 0;
+
+    border-left: 2px solid #000;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+
+    overflow: hidden;
+}
+
+/* 왼쪽 1단 */
+.detail-side {
+    grid-column: span 1;
+
+    min-width: 0;
+
+    border-right: 2px solid #000;
+}
+
+.detail-side-header {
+    padding: 20px 16px;
+    border-bottom: 2px solid #c2c2c2;
+}
+
+.detail-side-header p {
+    margin: 0;
+
+    font-size: 18px;
+    color: #c2c2c2;
+}
+
+/* 중앙 3단 */
+.detail-visual {
+    grid-column: span 3;
+
+    position: relative;
+
+    min-width: 0;
+    height: 100%;
+
+    border-right: 2px solid #000;
+
+    overflow: hidden;
+}
+
+
+.detail-image {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+}
+
+
+.zoom-box{
+    position: absolute;
+    transform: translate(-50%, -50%);
+
+    width: 18.75rem;
+    height: 18.75rem;
+
+    border: 2px solid #000;
+    background-repeat: no-repeat;
+    background-color:#fff;
+
+    pointer-events:none;
+    display:none;
+
+    z-index:100;
+}
+
+.detail-image {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+}
+
+.detail-image img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    transition: opacity 0.35s ease;
+}
+
+
+
+/* 좌우 화살표 */
+.detail-arrow {
+    position: absolute;
+    top: auto;
+    bottom: 16px;
+    z-index: 10;
+
+    width: 24px;
+    height: 24px;
+    padding: 2px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+
+    transform: none;
+}
+
+/* ← */
+.detail-arrow-prev {
+    left: auto;
+    right: 52px; /* 24px 화살표 + 12px 간격 + 16px 오른쪽 여백 */
+}
+
+/* → */
+.detail-arrow-next {
+    right: 16px;
+}
+
+.detail-arrow > img {
+    display: block;
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+/* 화살표 hover + 클릭 */
+.detail-arrow:hover,
+.detail-arrow:active {
+    opacity: 0.3;
+}
+
+/* 이미지 번호 */
+.detail-pagination {
+    position: absolute;
+    left: 16px;
+    bottom: 20px;
+
+    display: flex;
+    gap: 8px;
+}
+
+.detail-pagination button {
+    width: 15px;
+    height: 20px;
+
+    padding: 1px;
+
+    border: 0;
+    background: #000;
+    color: #fff;
+
+    font-size: 18px;
+
+    font-family: "VariableHuman", sans-serif;
+
+    cursor: pointer;
+}
+
+.detail-pagination button.active {
+    opacity: 0.3;
+}
+
+.detail-pagination button:hover {
+    opacity: 0.3;
+}
+
+
+/* 오른쪽 2단 */
+.detail-info {
+    grid-column: span 2;
+
+    min-width: 0;
+    height: 100%;
+    padding: 16px;
+
+    overflow-y: auto;
+}
+.detail-category {
+    margin: 0;
+
+    display: flex;
+    align-items: center;
+
+    color: #b1afb0;
+}
+
+.category-divider {
+    display: block;
+
+    width: 1.5px;
+    height: 12px;
+
+    margin-left:6px;
+    margin-right: 6px;
+
+    background: currentColor;
+    flex-shrink: 0;
+}
+
+.detail-title {
+    margin: 5px 0 0;
+}
+
+.detail-description {
+    margin: 10px 0 0;
+
+    font-size: 20px;
+    line-height: 32px;
+
+    word-break: keep-all;
+}
+
+/* 스펙 표 */
+.detail-spec {
+    margin: 40px 0 0;
+}
+
+.detail-spec > div {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 16px;
+
+    padding: 20px 0;
+
+    border-top: 2px solid #000;
+}
+
+.detail-spec > div:last-child {
+    border-bottom: 2px solid #000;
+}
+
+.detail-spec dt,
+.detail-spec dd {
+    margin: 0;
+
+    font-size: 18px;
+    line-height: 29px;
+}
+
+.detail-spec dd {
+    width: 100%;
+    max-width: none;
+
+    word-break: keep-all;
+    overflow-wrap: normal;
+}
+
+.detail-spec dt {
+    font-weight: 400;
+}
+
+.detail-view-menu {
+    display: flex;
+    gap: 12px;
+
+    margin-top: 20px;
+}
+
+.detail-view-menu button {
+    padding: 0;
+
+    border: 0;
+    background: transparent;
+
+    font-family: inherit;
+    font-size: 18px;
+    line-height: 20px;
+
+    color: #000;
+    cursor: pointer;
+}
+
+.detail-view-menu button.active {
+    opacity: 0.3;
+}
+
+.detail-view-menu button:hover {
+    opacity: 0.3;
+}
+.detail-note {
+    margin: 15px 0 0;
+}

@@ -1,0 +1,510 @@
+/* =========================
+   ABOUT LAYOUT
+========================= */
+
+.about-layout {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+
+    height: calc(100vh - 61px);
+    margin: 61px 40px 0;
+
+    border-left: 2px solid #000;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+
+    overflow: hidden;
+    background: #fff;
+}
+
+
+/* =========================
+   LEFT NAV — 1단
+========================= */
+
+.about-nav {
+    grid-column: span 1;
+
+    position: relative;
+    z-index: 20;
+
+    min-width: 0;
+
+    border-right: 2px solid #000;
+    background: #fff;
+}
+
+.about-nav-item {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+
+    padding: 1.25rem 1rem;
+
+    border: 0;
+    border-bottom: 2px solid #000;
+
+    background: #fff;
+
+    font-size: 1.125rem;
+    letter-spacing: -0.024em;
+    line-height: 1.125rem;
+    font-weight: 400;
+
+    text-align: left;
+
+    cursor: pointer;
+}
+
+.about-nav-item:hover,
+.about-nav-item.active {
+    opacity: 0.35;
+}
+
+
+/* =========================
+   RIGHT CONTENT — 4단
+========================= */
+
+.about-content {
+    grid-column: span 5;
+
+    position: relative;
+
+    min-width: 0;
+    height: 100%;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    background: #fff;
+
+    scrollbar-width: none;
+}
+
+.about-content::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* =========================
+   FIXED HERO
+========================= */
+
+.about-hero {
+    position: sticky;
+    top: 0;
+
+    z-index: 1;
+
+
+    width: 100%;
+    height: 945px;
+
+    overflow: hidden;
+}
+
+.about-hero::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 2px;
+    background: #000;
+
+    z-index: 3;
+
+    opacity: 1;
+    transition: opacity 0.3s ease;
+
+    pointer-events: none;
+}
+
+.about-hero.is-scrolled::after {
+    opacity: 0.3;
+}
+
+
+
+
+/* 이미지 */
+
+.about-hero-image {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    z-index: 0;
+
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+/* 스크롤했을 때 이미지만 30% */
+.about-hero.is-scrolled .about-hero-image {
+    opacity: 0.3;
+}
+
+
+
+/* 제목 */
+
+.about-hero-text {
+    position: relative;
+    z-index: 2;
+
+    padding: 1.25rem 1rem;
+}
+
+.about-hero-text h1 {
+    margin: 0;
+
+    font-family: "aktiv-grotesk", sans-serif;
+    font-size: 3.75rem;
+    font-weight: 400;
+    line-height: 1.1;
+
+    letter-spacing: 0;
+}
+
+.about-date {
+    margin: 25px 0 0;
+    font-family: "aktiv-grotesk", sans-serif;
+    font-size: 2.8125rem;
+    font-weight: 400;
+}
+
+
+
+
+/* 좌우 화살표 */
+.detail-arrow {
+    position: absolute;
+
+    bottom: 1.25rem;
+    z-index: 10;
+
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 0.125rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 0;
+    background: transparent;
+
+    cursor: pointer;
+
+    transition: opacity 0.2s ease;
+}
+
+.detail-arrow-prev {
+    right: 52px;
+}
+
+.detail-arrow-next {
+    right: 16px;
+}
+
+.detail-arrow > img {
+    display: block;
+
+    width: 20px;
+    height: 20px;
+
+    object-fit: contain;
+}
+
+.detail-arrow:hover,
+.detail-arrow:active {
+    opacity: 0.3;
+}
+
+
+/* =========================
+   SCROLL CONTENT
+========================= */
+
+.about-scroll-content {
+    position: relative;
+    z-index: 5;
+
+    width: 100%;
+    background: transparent;
+
+    /* 기본은 페이드 없음 */
+    --fade-start: 0px;
+    --fade-end: 0px;
+
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        transparent 0,
+        transparent var(--fade-start),
+        #000 var(--fade-end),
+        #000 100%
+    );
+
+    mask-image: linear-gradient(
+        to bottom,
+        transparent 0,
+        transparent var(--fade-start),
+        #000 var(--fade-end),
+        #000 100%
+    );
+}
+
+.about-scroll-content:not(.is-fading) {
+    -webkit-mask-image: none;
+    mask-image: none;
+}
+
+
+/* =========================
+   SECTION
+========================= */
+
+
+.about-section {
+    width: 100%;
+
+    padding: 20px 16px 0px;
+
+    background: transparent;
+}
+
+.about-section:last-child {
+    padding-bottom: 40px;
+}
+
+.about-section h2 {
+
+    margin: 0 0 16px;
+    padding-top: 20px;
+
+    border-top: 2px solid #000;
+
+    font-family: "pretendard", sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.about-section p {
+
+    margin: 0 0 0px;
+
+    font-family: "pretendard", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.6875rem;
+
+        word-break: keep-all;
+}
+
+.about-section h2,
+.about-section p,
+.category-list {
+    width: 58%;
+}
+
+/* =========================
+   CATEGORY
+========================= */
+
+.category-list {
+    margin-bottom: 16px;
+}
+
+
+/* =========================
+   CATEGORY ITEM
+========================= */
+
+.category-item {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    /* 번호 제목 → 설명문 간격 */
+    margin: 0 0 10px;
+}
+
+
+/* 번호 */
+
+.category-item span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    width: 16px;
+    height: 20px;
+
+    background: #000;
+    color: #fff;
+
+    font-family: "pretendard", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+
+/* 번호 옆 제목 */
+
+.category-item p {
+    width: auto;
+    margin: 0;
+
+    font-family: "pretendard", sans-serif;
+    font-size: 18px;
+}
+
+
+/* =========================
+   CATEGORY DESCRIPTION
+========================= */
+
+/* category-item 바로 다음 설명문 */
+.category-item + p {
+   margin-bottom: 25px;
+}
+
+
+/* 설명문 다음에 또 문단이 오는 경우 */
+.category-item + p + p {
+    margin: 0 0 20px;
+}
+
+
+/* 설명문 다음의 마지막 문단 */
+.category-item + p + p + p {
+    margin: 0 0 20px;
+}
+
+
+/* =========================
+   다음 CATEGORY 간격
+========================= */
+
+/* 설명문 뒤에 다음 번호가 나올 때 */
+.about-section p + .category-item {
+    margin-top: 25px;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1024px) {
+
+    .about-layout {
+        margin: 61px 24px 0;
+    }
+
+    .about-hero {
+        height: 760px;
+    }
+
+    .about-hero-text h1 {
+        font-size: 3rem;
+    }
+
+    .about-date {
+        font-size: 2.25rem;
+    }
+
+    .about-section h2,
+    .about-section p,
+    .category-list {
+        width: 75%;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 640px) {
+
+    .about-layout {
+        display: block;
+
+        height: auto;
+        margin: 61px 16px 0;
+
+        overflow: visible;
+    }
+
+    .about-nav {
+        position: sticky;
+        top: 61px;
+        z-index: 30;
+
+        display: flex;
+        overflow-x: auto;
+
+        border-right: 0;
+        border-bottom: 2px solid #000;
+    }
+
+    .about-nav-item {
+        flex: 0 0 auto;
+
+        width: auto;
+        padding: 16px 12px;
+
+        border-bottom: 0;
+        border-right: 2px solid #000;
+
+        white-space: nowrap;
+    }
+
+    .about-content {
+        height: auto;
+        overflow: visible;
+    }
+
+    .about-hero {
+        position: relative;
+        height: 620px;
+    }
+
+    .about-hero-text h1 {
+        font-size: 2.25rem;
+        line-height: 1.05;
+    }
+
+    .about-date {
+        margin-top: 18px;
+        font-size: 1.75rem;
+    }
+
+    .about-section h2,
+    .about-section p,
+    .category-list {
+        width: 100%;
+    }
+
+    .about-section {
+        padding: 16px 12px 0;
+    }
+
+    .detail-arrow {
+        bottom: 12px;
+    }
+}
