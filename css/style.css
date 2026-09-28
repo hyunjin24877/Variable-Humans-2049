@@ -165,7 +165,7 @@ ul.nav-list > li > a {
 
 .archive-card > a {
     display: grid;
-    grid-template-rows: 766px minmax(100px, auto);
+    grid-template-rows: auto minmax(100px, auto);
 
     width: 100%;
     height: 100%;
@@ -189,7 +189,7 @@ ul.nav-list > li > a {
 }
 
 .archive-card:hover > a {
-    grid-template-rows: 766px 180px;
+    grid-template-rows: auto 180px;
 }
 
 /* =========================
@@ -296,8 +296,10 @@ ul.nav-list > li > a {
 
 /* 이미지 영역 */
 .archive-image {
+    position: relative;
     width: 100%;
-    height: 766px;
+    height: auto;
+    aspect-ratio: 1226 / 1532;
 
     overflow: hidden;
     box-sizing: border-box;
@@ -309,12 +311,14 @@ ul.nav-list > li > a {
 
 /* 실제 이미지 */
 .archive-image img {
+    position: absolute;
+    inset: 0;
     display: block;
 
     width: 100%;
     height: 100%;
 
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
 
     transition: opacity 0.35s ease;
@@ -391,7 +395,7 @@ ul.nav-list > li > a {
     color: #c2c2c2;
 }
 .archive-card:hover > a {
-    grid-template-rows: 766px 180px;
+    grid-template-rows: auto 180px;
 }
 
 
@@ -463,9 +467,6 @@ ul.nav-list > li > a {
 
 @media (max-width: 1024px) {
 
-    .archive-list {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
 
     .archive-card > a {
         grid-template-rows: auto minmax(100px, auto);
@@ -542,15 +543,6 @@ ul.nav-list > li > a {
         white-space: nowrap;
     }
 
-    .archive-list {
-        grid-template-columns: 1fr;
-    }
-
-    .archive-card,
-    .archive-card:nth-child(2n),
-    .archive-card:nth-child(3n) {
-        border-right: 0;
-    }
 
     .archive-card > a,
     .archive-card:hover > a {

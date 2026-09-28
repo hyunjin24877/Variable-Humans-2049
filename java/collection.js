@@ -13,7 +13,7 @@ function updateCardBorders() {
     return !card.classList.contains("is-hidden");
   });
 
-  const columns = window.innerWidth <= 640 ? 1 : window.innerWidth <= 1024 ? 2 : 3;
+  const columns = 3;
 
   // 현재 화면의 열 수를 기준으로 각 행의 마지막 선 제거
   visibleCards.forEach((card, index) => {
