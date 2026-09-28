@@ -376,11 +376,11 @@
         display: flex;
         align-items: center;
 
-        min-height: 58px;
+        min-height: 60px;
         padding: 16px 12px;
 
-        font-size: 18px;
-        line-height: 26px;
+        font-size: 28px;
+        line-height: 28px;
     }
 
     .timeline-content {

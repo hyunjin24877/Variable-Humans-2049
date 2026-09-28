@@ -538,11 +538,11 @@ button {
 
 @media (max-width: 640px) {
     .filter-label-desktop {
-        display: none;
+        display: inline;
     }
 
     .filter-label-mobile {
-        display: inline;
+        display: none;
     }
 
     #shopmenu {
