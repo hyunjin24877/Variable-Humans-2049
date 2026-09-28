@@ -28,6 +28,8 @@ const viewButtons = document.querySelectorAll(".view");
 
 function updateUI() {
   image.src = images[current];
+  prevButton.disabled = current === 0;
+  nextButton.disabled = current === images.length - 1;
 
   pageButtons.forEach((button, index) => {
     button.classList.toggle("active", index === current);
@@ -39,12 +41,14 @@ function updateUI() {
 }
 
 nextButton.addEventListener("click", () => {
-  current = (current + 1) % images.length;
+  if (current >= images.length - 1) return;
+  current++;
   updateUI();
 });
 
 prevButton.addEventListener("click", () => {
-  current = (current - 1 + images.length) % images.length;
+  if (current <= 0) return;
+  current--;
   updateUI();
 });
 

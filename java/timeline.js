@@ -15,11 +15,15 @@ document.addEventListener("DOMContentLoaded", () => {
     preview.src = image.currentSrc || image.src;
     preview.alt = image.alt;
     previousButton.hidden = nextButton.hidden = galleryImages.length < 2;
+    previousButton.disabled = imageIndex === 0;
+    nextButton.disabled = imageIndex === galleryImages.length - 1;
   }
 
   function changeImage(direction) {
     if (!lightbox.open || galleryImages.length < 2) return;
-    imageIndex = (imageIndex + direction + galleryImages.length) % galleryImages.length;
+    const targetIndex = imageIndex + direction;
+    if (targetIndex < 0 || targetIndex >= galleryImages.length) return;
+    imageIndex = targetIndex;
     renderImage();
   }
 
@@ -131,6 +135,8 @@ document.addEventListener("DOMContentLoaded", () => {
       controls.append(previous, next);
 
       const render = () => {
+        previous.disabled = currentIndex === 0;
+        next.disabled = currentIndex === cards.length - 1;
         cards.forEach((card, index) => {
           card.classList.toggle("is-mobile-active", index === currentIndex);
         });
@@ -141,12 +147,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
       previous.addEventListener("click", (event) => {
         event.stopPropagation();
-        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+        if (currentIndex <= 0) return;
+        currentIndex--;
         render();
       });
       next.addEventListener("click", (event) => {
         event.stopPropagation();
-        currentIndex = (currentIndex + 1) % cards.length;
+        if (currentIndex >= cards.length - 1) return;
+        currentIndex++;
         render();
       });
 

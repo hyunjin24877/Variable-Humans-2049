@@ -232,16 +232,15 @@ let currentImageIndex = 0;
 /* 이미지 변경 */
 function changeHeroImage() {
   heroImage.src = heroImages[currentImageIndex];
+  prevButton.disabled = currentImageIndex === 0;
+  nextButton.disabled = currentImageIndex === heroImages.length - 1;
 }
 
 
 /* 이전 이미지 */
 prevButton.addEventListener("click", () => {
+  if (currentImageIndex <= 0) return;
   currentImageIndex--;
-
-  if (currentImageIndex < 0) {
-    currentImageIndex = heroImages.length - 1;
-  }
 
   changeHeroImage();
 });
@@ -249,11 +248,10 @@ prevButton.addEventListener("click", () => {
 
 /* 다음 이미지 */
 nextButton.addEventListener("click", () => {
+  if (currentImageIndex >= heroImages.length - 1) return;
   currentImageIndex++;
-
-  if (currentImageIndex >= heroImages.length) {
-    currentImageIndex = 0;
-  }
 
   changeHeroImage();
 });
+
+changeHeroImage();

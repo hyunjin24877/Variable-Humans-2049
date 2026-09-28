@@ -140,6 +140,12 @@ button {
     transition: opacity 0.2s ease;
 }
 
+/* 갤러리 처음/끝에서는 화살표를 흐리게 표시하고 이동을 막음 */
+button:disabled {
+    opacity: 0.3;
+    cursor: default;
+}
+
 @media (hover: hover) {
     button:hover {
         opacity: 0.3;
