@@ -346,6 +346,11 @@ body {
 }
 
 @media (max-width: 640px) {
+    .detail-view-menu,
+    .detail-note {
+        display: none;
+    }
+
     #detail-wrap {
         display: block;
 
