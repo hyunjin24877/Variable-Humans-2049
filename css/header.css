@@ -478,22 +478,12 @@ button:disabled {
     transform: translateY(1px);
     transform-origin: center;
 
-    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-#changefilter a:active .change {
-    transform: translateY(1px) scale(0.82);
-}
-
-#changefilter a.is-switching .change,
-#changefilter a.is-switching:hover .change {
-    transform: translateY(1px) rotate(180deg) scale(0.9);
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .change {
-        transition-duration: 0.01ms;
-    }
+/* 클릭 중에는 선의 형태 변화만 보여주고 hover fade를 멈춤 */
+#changefilter a.is-switching {
+    opacity: 1;
+    transition: none;
 }
 
 #changefilter a {

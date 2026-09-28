@@ -159,6 +159,15 @@ document.addEventListener("languagechange", updateSearchPlaceholder);
 window.addEventListener("resize", updateSearchPlaceholder);
 
 if (viewChangeLink) {
+  const initialLines = Array.from(viewChangeLink.querySelectorAll("svg.change line"))
+    .map((line) => ({ line, x1: line.getAttribute("x1"), x2: line.getAttribute("x2") }));
+  window.addEventListener("pageshow", () => {
+    viewChangeLink.classList.remove("is-switching");
+    initialLines.forEach(({ line, x1, x2 }) => {
+      line.setAttribute("x1", x1);
+      line.setAttribute("x2", x2);
+    });
+  });
   viewChangeLink.addEventListener("click", (event) => {
     const usesModifiedClick = event.metaKey || event.ctrlKey || event.shiftKey || event.altKey;
     const reducesMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -166,11 +175,36 @@ if (viewChangeLink) {
     if (usesModifiedClick || reducesMotion) return;
 
     event.preventDefault();
+    if (viewChangeLink.classList.contains("is-switching")) return;
     viewChangeLink.classList.add("is-switching");
 
-    window.setTimeout(() => {
+    const icon = viewChangeLink.querySelector("svg.change");
+    if (!icon) {
       window.location.href = viewChangeLink.href;
-    }, 300);
+      return;
+    }
+    // 같은 세 선을 유지하며 좌우 위치와 대각선 기울기만 보간한다.
+    const shapes = {
+      list: [[4.56, 21.87], [4.56, 12.7], [2.22, 21.87]],
+      img: [[2.13, 19.44], [19.44, 11.3], [2.13, 21.78]],
+    };
+    const from = shapes[icon.dataset.view];
+    const to = shapes[icon.dataset.view === "list" ? "img" : "list"];
+    const lines = Array.from(icon.querySelectorAll("line"));
+    const start = performance.now();
+    function morph(now) {
+      const progress = Math.min((now - start) / 280, 1);
+      const eased = progress * progress * (3 - 2 * progress);
+      lines.forEach((line, index) => {
+        ["x1", "x2"].forEach((attribute, endpoint) => {
+          line.setAttribute(attribute, from[index][endpoint]
+            + (to[index][endpoint] - from[index][endpoint]) * eased);
+        });
+      });
+      if (progress < 1) requestAnimationFrame(morph);
+      else window.location.href = viewChangeLink.href;
+    }
+    requestAnimationFrame(morph);
   });
 }
 
