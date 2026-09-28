@@ -524,7 +524,7 @@ ul.nav-list > li > a {
 
     #lnbnav .filter-button,
     #lnbnav #changefilter a {
-        padding: 16px 12px;
+        padding: 16px 6px;
         border-right: 0;
         font-size: 18px;
         line-height: 18px;

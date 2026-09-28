@@ -128,6 +128,10 @@
     background: #fff;
 }
 
+.timeline-mobile-year {
+    display: none;
+}
+
 .timeline-nav-item {
     display: flex;
     flex-direction: column;
@@ -357,23 +361,26 @@
         top: 61px;
         z-index: 30;
 
-        display: flex;
-        overflow-x: auto;
+        display: block;
+        overflow: hidden;
 
         border-right: 0;
         border-bottom: 2px solid #000;
     }
 
     .timeline-nav-item {
-        flex: 0 0 auto;
+        display: none;
+    }
 
-        width: auto;
+    .timeline-mobile-year {
+        display: flex;
+        align-items: center;
+
+        min-height: 58px;
         padding: 16px 12px;
 
-        border-bottom: 0;
-        border-right: 2px solid #000;
-
-        white-space: nowrap;
+        font-size: 18px;
+        line-height: 26px;
     }
 
     .timeline-content {

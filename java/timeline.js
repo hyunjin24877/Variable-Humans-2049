@@ -156,6 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const sections = Array.from(content.querySelectorAll("article.timeline-section"));
   const navItems = Array.from(document.querySelectorAll(".timeline-nav-item"));
   const timelineNav = document.querySelector(".timeline-nav");
+  const mobileYear = document.querySelector(".timeline-mobile-year");
   const mobileLayout = window.matchMedia("(max-width: 640px)");
   if (!sections.length) return;
 
@@ -191,6 +192,9 @@ document.addEventListener("DOMContentLoaded", () => {
       if (selected) item.setAttribute("aria-current", "true");
       else item.removeAttribute("aria-current");
     });
+    if (mobileYear) {
+      mobileYear.textContent = active.id.replace("timeline-", "");
+    }
   }
 
   navItems.forEach((button) => {
