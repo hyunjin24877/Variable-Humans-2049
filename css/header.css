@@ -544,11 +544,11 @@ button {
     }
 
     .filter-label-desktop {
-        display: inline;
+        display: none;
     }
 
     .filter-label-mobile {
-        display: none;
+        display: inline;
     }
 
     #shopmenu {
