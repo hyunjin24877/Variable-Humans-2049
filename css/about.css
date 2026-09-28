@@ -498,7 +498,8 @@
     }
 
     .about-date {
-        margin-top: 18px;
+        --about-date-gap: 18px; /* 제목과 날짜 사이 간격: 이 값을 조정 */
+        margin-top: var(--about-date-gap);
         font-size: 1.75rem;
     }
 
