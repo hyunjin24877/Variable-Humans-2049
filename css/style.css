@@ -475,6 +475,12 @@ ul.nav-list > li > a {
         aspect-ratio: 1226 / 1532;
     }
 
+    .archive-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
     .inner {
         width: auto;
         margin: 0 24px;
@@ -485,18 +491,6 @@ ul.nav-list > li > a {
 /* =========================
    mobile
 ========================= */
-
-/* iPad 반응형: 고정 비율로 자르지 않고 원본 전체 표시 */
-@media (min-width: 641px) and (max-width: 1024px) {
-    .archive-image {
-        aspect-ratio: auto;
-    }
-
-    .archive-image img {
-        height: auto;
-        object-fit: contain;
-    }
-}
 
 @media (max-width: 640px) {
     .inner {
