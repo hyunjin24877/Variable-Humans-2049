@@ -136,6 +136,16 @@
     opacity: 0.3;
 }
 
+button {
+    transition: opacity 0.2s ease;
+}
+
+@media (hover: hover) {
+    button:hover {
+        opacity: 0.3;
+    }
+}
+
 
 /* =========================
    RIGHT ICON MENU
@@ -432,6 +442,14 @@
     font-size: 20px;
     font-weight: 400;
     line-height: 1;
+
+    transition: opacity 0.2s ease;
+}
+
+@media (hover: hover) {
+    #changefilter a:hover {
+        opacity: 0.3;
+    }
 }
 
 .change {
@@ -448,16 +466,6 @@
     transform-origin: center;
 
     transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-@media (hover: hover) {
-    #changefilter a[href$="collection.list.html"]:hover .change {
-        transform: translate(-3px, 1px);
-    }
-
-    #changefilter a[href$="collection.html"]:hover .change {
-        transform: translate(3px, 1px);
-    }
 }
 
 #changefilter a:active .change {
@@ -569,6 +577,11 @@
 
     #header.mobile-menu-open #shopmenu > li:not(:last-child) {
         margin-right: 0;
+    }
+
+    #header.mobile-menu-open #shopmenu > .mobile-language-item {
+        justify-content: flex-start;
+        padding: 14px 16px;
     }
 
     #header.mobile-menu-open #shopmenu a {
@@ -755,5 +768,11 @@
     .search-button::after,
     .search-input {
         transition-duration: 0.01ms;
+    }
+}
+
+@media (hover: hover) {
+    #header.search-open .search-button:hover {
+        opacity: 0.3;
     }
 }

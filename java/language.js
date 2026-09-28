@@ -107,8 +107,25 @@ const searchButton = document.getElementById("searchButton");
 const searchInput = document.getElementById("searchInput");
 const searchItem = document.querySelector(".search-item");
 const shopMenu = document.getElementById("shopmenu");
+const accountMenu = document.getElementById("acountmenu");
+const languageMenuItem = languageToggle?.closest("li");
 const viewChangeLink = document.querySelector("#changefilter a");
 let mobileMenuButton = null;
+
+const syncLanguageTogglePosition = () => {
+  if (!shopMenu || !accountMenu || !languageMenuItem) return;
+
+  languageMenuItem.classList.add("mobile-language-item");
+
+  if (window.innerWidth <= 640) {
+    shopMenu.append(languageMenuItem);
+  } else {
+    accountMenu.append(languageMenuItem);
+  }
+};
+
+syncLanguageTogglePosition();
+window.addEventListener("resize", syncLanguageTogglePosition);
 
 const updateSearchButtonState = () => {
   if (!header || !searchButton) return;
