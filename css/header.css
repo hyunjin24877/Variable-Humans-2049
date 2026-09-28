@@ -140,6 +140,13 @@ button {
     transition: opacity 0.2s ease;
 }
 
+/* iPad/iOS에서도 사이드 메뉴 버튼에 브라우저 기본 파란색을 쓰지 않음 */
+.about-nav-item,
+.timeline-nav-item {
+    color: #000;
+    -webkit-text-fill-color: currentColor;
+}
+
 /* 갤러리 처음/끝에서는 화살표를 흐리게 표시하고 이동을 막음 */
 button:disabled {
     opacity: 0.3;

@@ -553,6 +553,7 @@ ul.nav-list > li > a {
     }
 
     .archive-desc {
+        display: none;
         max-height: none;
         opacity: 1;
     }
