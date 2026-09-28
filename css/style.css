@@ -399,6 +399,11 @@ ul.nav-list > li > a {
 
 .archive-desc {
     margin: 10px 0 0;
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: break-word;
+    -webkit-hyphens: auto;
+    hyphens: auto;
 
     max-height: 0;
     overflow: hidden;
