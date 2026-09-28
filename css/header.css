@@ -167,7 +167,7 @@ button {
     transform: translateY(-50%);
 }
 
-/* 검색 ↔ KR/EG 간격 */
+/* 검색 ↔ KR/EN 간격 */
 #acountmenu > li:not(:last-child) {
     margin-right: 8px;
 }
@@ -345,7 +345,7 @@ button {
 }
 
 
-/* EG 선택 시 흰색 배경 이동 */
+/* EN 선택 시 흰색 배경 이동 */
 .language-toggle.is-en::before {
     transform: translateX(30px);
 }
