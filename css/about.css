@@ -478,7 +478,23 @@
 
     .about-hero-text h1 {
         font-size: 2.25rem;
-        line-height: 1.05;
+        /* 모바일 제목 보정: 영문/한글 사이 간격과 제목 내부 줄간격 */
+        --about-title-gap: 12px;
+        --about-title-line-height: 1.2;
+        line-height: var(--about-title-line-height);
+    }
+
+    .about-hero-text h1 > br {
+        display: none;
+    }
+
+    .about-title-en,
+    .about-title-ko {
+        display: block;
+    }
+
+    .about-title-ko {
+        margin-top: var(--about-title-gap);
     }
 
     .about-date {
