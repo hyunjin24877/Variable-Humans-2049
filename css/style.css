@@ -140,20 +140,31 @@ ul.nav-list > li > a {
 /* 개별 카드 */
 
 .archive-card {
+    position: relative;
     min-width: 0;
     overflow: hidden;
 
     background: #fff;
 
-    border-right: 2px solid #000;
     border-bottom: 2px solid #000;
 
     box-sizing: border-box;
 }
 
 /* 현재 보이는 카드 중 3번째 카드 */
-.archive-card.row-end {
-    border-right: 0;
+.archive-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 2px;
+    background: #000;
+    pointer-events: none;
+}
+
+.archive-card.row-end::after {
+    display: none;
 }
 
 .archive-card.is-hidden {
@@ -165,7 +176,8 @@ ul.nav-list > li > a {
 
 .archive-card > a {
     display: grid;
-    grid-template-rows: auto minmax(100px, auto);
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: max-content minmax(100px, auto);
 
     width: 100%;
     height: 100%;
@@ -189,7 +201,7 @@ ul.nav-list > li > a {
 }
 
 .archive-card:hover > a {
-    grid-template-rows: auto 180px;
+    grid-template-rows: max-content 180px;
 }
 
 /* =========================
@@ -297,6 +309,7 @@ ul.nav-list > li > a {
 /* 이미지 영역 */
 .archive-image {
     position: relative;
+    align-self: start;
     width: 100%;
     height: auto;
     aspect-ratio: 1226 / 1532;
@@ -395,7 +408,7 @@ ul.nav-list > li > a {
     color: #c2c2c2;
 }
 .archive-card:hover > a {
-    grid-template-rows: auto 180px;
+    grid-template-rows: max-content 180px;
 }
 
 
@@ -469,11 +482,11 @@ ul.nav-list > li > a {
 
 
     .archive-card > a {
-        grid-template-rows: auto minmax(100px, auto);
+        grid-template-rows: max-content minmax(100px, auto);
     }
 
     .archive-card:hover > a {
-        grid-template-rows: auto 180px;
+        grid-template-rows: max-content 180px;
     }
 
     .archive-image {
@@ -546,7 +559,7 @@ ul.nav-list > li > a {
 
     .archive-card > a,
     .archive-card:hover > a {
-        grid-template-rows: auto auto;
+        grid-template-rows: max-content auto;
     }
 
     .archive-info {
