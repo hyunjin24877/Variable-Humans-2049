@@ -66,6 +66,38 @@ viewButtons.forEach((button, index) => {
   });
 });
 
+/* 모바일 이미지 스와이프: 세로 스크롤과 두 손가락 확대는 유지 */
+const mobileGallery = window.matchMedia("(max-width: 640px)");
+let swipeStart = null;
+
+image.addEventListener("touchstart", (event) => {
+  swipeStart = mobileGallery.matches && event.touches.length === 1
+    ? { x: event.touches[0].clientX, y: event.touches[0].clientY }
+    : null;
+}, { passive: true });
+
+image.addEventListener("touchmove", (event) => {
+  if (event.touches.length !== 1) swipeStart = null;
+}, { passive: true });
+
+image.addEventListener("touchend", (event) => {
+  const start = swipeStart;
+  swipeStart = null;
+  if (!start || !mobileGallery.matches || !event.changedTouches.length) return;
+
+  const dx = event.changedTouches[0].clientX - start.x;
+  const dy = event.changedTouches[0].clientY - start.y;
+  if (Math.abs(dx) < 50 || Math.abs(dx) <= Math.abs(dy) * 1.2) return;
+
+  const target = current + (dx < 0 ? 1 : -1);
+  if (target < 0 || target >= images.length) return;
+  current = target;
+  updateUI();
+}, { passive: true });
+
+image.addEventListener("touchcancel", () => { swipeStart = null; });
+mobileGallery.addEventListener("change", () => { swipeStart = null; });
+
 /* =========================
    ZOOM
 ========================= */
