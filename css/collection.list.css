@@ -342,6 +342,6 @@ html[lang="en"] .preview-description {
 
     .collection-list-item {
         min-height: 76px;
-        padding: 14px 16px;
+        padding: 14px var(--mobile-content-inset);
     }
 }

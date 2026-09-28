@@ -350,7 +350,7 @@ body {
         display: block;
 
         height: auto;
-        margin: 61px 16px 0;
+        margin: 61px var(--mobile-page-gutter) 0;
 
         overflow: visible;
     }
@@ -390,22 +390,22 @@ body {
     }
 
     .detail-arrow-prev {
-        right: 48px;
+        right: calc(var(--mobile-content-inset) + 36px);
     }
 
     .detail-arrow-next {
-        right: 12px;
+        right: var(--mobile-content-inset);
     }
 
     .detail-pagination {
-        left: 12px;
+        left: var(--mobile-content-inset);
         bottom: 16px;
     }
 
     .detail-info {
         width: 100%;
         height: auto;
-        padding: 20px 12px 40px;
+        padding: 20px var(--mobile-content-inset) 40px;
 
         overflow: visible;
     }
@@ -423,8 +423,8 @@ body {
         grid-template-columns: 1fr;
         gap: 20px;
 
-        width: calc(100% - 32px);
-        margin: 0 16px 20px;
-        padding: 20px 12px 40px;
+        width: calc(100% - 2 * var(--mobile-page-gutter));
+        margin: 0 var(--mobile-page-gutter) 20px;
+        padding: 20px var(--mobile-content-inset) 40px;
     }
 }

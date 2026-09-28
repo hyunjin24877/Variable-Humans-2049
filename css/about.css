@@ -445,7 +445,7 @@
         display: block;
 
         height: auto;
-        margin: 61px 16px 0;
+        margin: 61px var(--mobile-page-gutter) 0;
 
         overflow: visible;
     }
@@ -458,7 +458,7 @@
         flex: 0 0 auto;
 
         width: auto;
-        padding: 16px 12px;
+        padding: 16px var(--mobile-content-inset);
 
         border-bottom: 0;
         border-right: 2px solid #000;
@@ -493,10 +493,21 @@
     }
 
     .about-section {
-        padding: 16px 12px 0;
+        padding: 16px var(--mobile-content-inset) 0;
     }
 
     .detail-arrow {
         bottom: 12px;
+    }
+    .about-hero-text {
+        padding-inline: var(--mobile-content-inset);
+    }
+
+    .detail-arrow-prev {
+        right: calc(var(--mobile-content-inset) + 36px);
+    }
+
+    .detail-arrow-next {
+        right: var(--mobile-content-inset);
     }
 }

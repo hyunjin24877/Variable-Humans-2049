@@ -537,6 +537,12 @@ button {
 }
 
 @media (max-width: 640px) {
+    /* 공통 모바일 좌우 여백: 페이지 바깥 / 테두리 안쪽 */
+    :root {
+        --mobile-page-gutter: 16px;
+        --mobile-content-inset: 12px;
+    }
+
     .filter-label-desktop {
         display: inline;
     }
@@ -581,13 +587,13 @@ button {
 
     #header.mobile-menu-open #shopmenu > .mobile-language-item {
         justify-content: flex-start;
-        padding: 14px 16px;
+        padding: 14px var(--mobile-page-gutter);
     }
 
     #header.mobile-menu-open #shopmenu a {
         width: 100%;
         height: auto;
-        padding: 16px;
+        padding: 16px var(--mobile-page-gutter);
     }
 
     #header h1 {
@@ -598,7 +604,7 @@ button {
 
     #acountmenu {
         top: 0;
-        right: 16px;
+        right: var(--mobile-page-gutter);
         transform: none;
     }
 
@@ -678,7 +684,7 @@ button {
     .mobile-menu-toggle {
         position: absolute;
         top: 50%;
-        left: 16px;
+        left: var(--mobile-page-gutter);
         z-index: 2;
 
         display: flex;
@@ -725,14 +731,14 @@ button {
 
         width: 100vw;
         height: 52px;
-        padding: 0 48px 0 16px;
+        padding: 0 calc(var(--mobile-page-gutter) + 32px) 0 var(--mobile-page-gutter);
 
         border: 0;
         border-bottom: 2px solid #000;
         background-color: transparent;
         background-image: url("../img/search.svg");
         background-repeat: no-repeat;
-        background-position: right 16px center;
+        background-position: right var(--mobile-page-gutter) center;
         background-size: 24px 24px;
 
         transform: translateY(-8px);
@@ -756,9 +762,9 @@ button {
         grid-template-columns: 1fr;
         gap: 20px;
 
-        width: calc(100% - 32px);
-        margin: 0 16px 20px;
-        padding: 20px 12px 40px;
+        width: calc(100% - 2 * var(--mobile-page-gutter));
+        margin: 0 var(--mobile-page-gutter) 20px;
+        padding: 20px var(--mobile-content-inset) 40px;
     }
 }
 
