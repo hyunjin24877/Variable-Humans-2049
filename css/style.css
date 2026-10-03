@@ -201,7 +201,7 @@ ul.nav-list > li > a {
 }
 
 .archive-card:hover > a {
-    grid-template-rows: max-content 180px;
+    grid-template-rows: max-content minmax(180px, auto);
 }
 
 /* =========================
@@ -318,7 +318,18 @@ ul.nav-list > li > a {
     box-sizing: border-box;
 
     background: #fff;
-    border-bottom: 2px solid #000;
+}
+
+/* 선이 이미지의 가용 높이를 줄이지 않도록 내부 위에 겹쳐 표시 */
+.archive-image::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: #000;
+    pointer-events: none;
 }
 
 
@@ -330,6 +341,7 @@ ul.nav-list > li > a {
 
     width: 100%;
     height: 100%;
+    transform: scaleX(1.01);
 
     object-fit: contain;
     object-position: center;
@@ -408,7 +420,7 @@ ul.nav-list > li > a {
     color: #c2c2c2;
 }
 .archive-card:hover > a {
-    grid-template-rows: max-content 180px;
+    grid-template-rows: max-content minmax(180px, auto);
 }
 
 
@@ -416,9 +428,10 @@ ul.nav-list > li > a {
 
 .archive-desc {
     margin: 10px 0 0;
+    max-width: 25em; /* 한 줄의 최대 너비: 줄바꿈 위치 조절 */
     white-space: normal;
-    word-break: normal;
-    overflow-wrap: break-word;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
     -webkit-hyphens: auto;
     hyphens: auto;
 
@@ -426,13 +439,18 @@ ul.nav-list > li > a {
     overflow: hidden;
     opacity: 0;
 
-    transition:
-        max-height 0.35s ease,
-        opacity 0.35s ease;
-        color: #c2c2c2;
+    transition: opacity 0.35s ease;
+    color: #c2c2c2;
 }
+
+/* Collection 카드 호버 설명글 크기 */
+.archive-desc.type-size {
+    font-size: 1.25rem;
+    line-height: 2rem;
+}
+
 .archive-card:hover .archive-desc {
-    max-height: 100px;
+    max-height: 4rem; /* line-height 2rem × 2줄, 나머지는 잘림 */
     opacity: 1;
 }
 
@@ -479,14 +497,16 @@ ul.nav-list > li > a {
 ========================= */
 
 @media (max-width: 1024px) {
-
+    .archive-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 
     .archive-card > a {
         grid-template-rows: max-content minmax(100px, auto);
     }
 
     .archive-card:hover > a {
-        grid-template-rows: max-content 180px;
+        grid-template-rows: max-content minmax(180px, auto);
     }
 
     .archive-image {
@@ -512,6 +532,10 @@ ul.nav-list > li > a {
 ========================= */
 
 @media (max-width: 640px) {
+    .archive-list {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
     .inner {
         width: auto;
         margin: 0 var(--mobile-page-gutter);
@@ -549,7 +573,7 @@ ul.nav-list > li > a {
 
     #lnbnav .filter-button,
     #lnbnav #changefilter a {
-        padding: 16px var(--mobile-content-inset);
+        padding: 16px 0.5rem;
         border-right: 0;
         font-size: 18px;
         line-height: 18px;

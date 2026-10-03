@@ -239,6 +239,12 @@
     border-top: 2px solid #000;
 }
 
+.timeline-block-plain {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+}
+
 .timeline-block h2 {
     margin: 0 0 16px;
     font-family: "pretendard", sans-serif;
@@ -284,6 +290,11 @@
     max-width: 100%;
     object-fit: contain;
     object-position: left center;
+}
+
+.observation-card img.observation-photo-flipped,
+.timeline-lightbox-image.observation-photo-flipped {
+    transform: scaleX(-1);
 }
 
 .observation-card figcaption,

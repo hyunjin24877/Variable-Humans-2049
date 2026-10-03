@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const image = galleryImages[imageIndex];
     preview.src = image.currentSrc || image.src;
     preview.alt = image.alt;
+    preview.classList.toggle("observation-photo-flipped", image.classList.contains("observation-photo-flipped"));
     previousButton.hidden = nextButton.hidden = galleryImages.length < 2;
     previousButton.disabled = imageIndex === 0;
     nextButton.disabled = imageIndex === galleryImages.length - 1;

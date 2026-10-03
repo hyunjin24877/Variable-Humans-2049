@@ -477,9 +477,9 @@
     }
 
     .about-hero-text h1 {
-        font-size: 2.25rem;
+        font-size: 2rem;
         /* 모바일 제목 보정: 영문/한글 사이 간격과 제목 내부 줄간격 */
-        --about-title-gap: 12px;
+        --about-title-gap: 3px;
         --about-title-line-height: 1.2;
         line-height: var(--about-title-line-height);
     }
@@ -498,7 +498,7 @@
     }
 
     .about-date {
-        --about-date-gap: 18px; /* 제목과 날짜 사이 간격: 이 값을 조정 */
+        --about-date-gap: 8px; /* 제목과 날짜 사이 간격: 이 값을 조정 */
         margin-top: var(--about-date-gap);
         font-size: 1.75rem;
     }
