@@ -580,6 +580,10 @@ ul.nav-list > li > a {
         white-space: nowrap;
     }
 
+    #lnbnav .nav-list > li:first-child > .filter-button {
+        padding-left: var(--mobile-content-inset);
+    }
+
 
     .archive-card > a,
     .archive-card:hover > a {
