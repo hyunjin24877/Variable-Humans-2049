@@ -356,25 +356,8 @@
 }
 
 @media (max-width: 640px) {
-    .timeline-lightbox {
-        padding: 16px;
-    }
-
-    .timeline-lightbox-frame {
-        width: 100%;
-        height: 100%;
-    }
-
-    .timeline-lightbox-image {
-        width: 100%;
-        height: 100%;
-        max-width: none;
-        object-fit: cover;
-    }
-
-    .timeline-content.is-image-preview-open .timeline-mobile-gallery-nav {
-        visibility: hidden;
-    }
+    .timeline-image-trigger { cursor: default; }
+    .timeline-image-trigger:hover { opacity: 1; }
 
     .timeline-layout {
         display: block;

@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const preview = lightbox.querySelector(".timeline-lightbox-image");
   const previousButton = lightbox.querySelector(".timeline-lightbox-prev");
   const nextButton = lightbox.querySelector(".timeline-lightbox-next");
+  const mobileLayout = window.matchMedia("(max-width: 640px)");
   let imageTrigger = null;
   let galleryImages = [];
   let imageIndex = 0;
@@ -28,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function openImage(image) {
+    if (mobileLayout.matches) return;
     imageTrigger = image;
     const gallery = image.closest(".observation-track, .research-track, .timeline-gallery");
     galleryImages = gallery
@@ -42,7 +44,8 @@ document.addEventListener("DOMContentLoaded", () => {
     content.classList.add("is-image-preview-open");
   }
 
-  content.querySelectorAll("img").forEach((image) => {
+  const imageTriggers = Array.from(content.querySelectorAll("img"));
+  imageTriggers.forEach((image) => {
     // Divide each row in proportion to the original image widths at equal height.
     const setImageRatio = () => {
       if (!image.naturalWidth || !image.naturalHeight) return;
@@ -52,17 +55,33 @@ document.addEventListener("DOMContentLoaded", () => {
     image.addEventListener("load", setImageRatio);
     setImageRatio();
     image.classList.add("timeline-image-trigger");
-    image.tabIndex = 0;
-    image.setAttribute("role", "button");
-    image.setAttribute("aria-haspopup", "dialog");
-    image.setAttribute("aria-label", `${image.alt || "이미지 / Image"} — 크게 보기 / Enlarge`);
     image.addEventListener("click", () => openImage(image));
     image.addEventListener("keydown", (event) => {
-      if (event.key !== "Enter" && event.key !== " ") return;
+      if (mobileLayout.matches || (event.key !== "Enter" && event.key !== " ")) return;
       event.preventDefault();
       openImage(image);
     });
   });
+
+  function syncImageTriggers() {
+    imageTriggers.forEach((image) => {
+      if (mobileLayout.matches) {
+        image.removeAttribute("tabindex");
+        image.removeAttribute("role");
+        image.removeAttribute("aria-haspopup");
+        image.removeAttribute("aria-label");
+      } else {
+        image.tabIndex = 0;
+        image.setAttribute("role", "button");
+        image.setAttribute("aria-haspopup", "dialog");
+        image.setAttribute("aria-label", `${image.alt || "이미지 / Image"} — 크게 보기 / Enlarge`);
+      }
+    });
+    if (mobileLayout.matches && lightbox.open) lightbox.close();
+  }
+
+  mobileLayout.addEventListener("change", syncImageTriggers);
+  syncImageTriggers();
 
   previousButton.addEventListener("click", () => changeImage(-1));
   nextButton.addEventListener("click", () => changeImage(1));
@@ -92,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
     touchStart = null;
     content.classList.remove("is-image-preview-open");
     preview.removeAttribute("src");
-    imageTrigger?.focus({ preventScroll: true });
+    if (!mobileLayout.matches) imageTrigger?.focus({ preventScroll: true });
   });
 
   /* Mobile: show one large image per gallery with previous/next controls. */
@@ -165,7 +184,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const navItems = Array.from(document.querySelectorAll(".timeline-nav-item"));
   const timelineNav = document.querySelector(".timeline-nav");
   const mobileYear = document.querySelector(".timeline-mobile-year");
-  const mobileLayout = window.matchMedia("(max-width: 640px)");
   if (!sections.length) return;
 
   function sectionTop(target) {
