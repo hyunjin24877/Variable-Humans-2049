@@ -361,6 +361,10 @@
         max-height: 72dvh;
     }
 
+    .timeline-content.is-image-preview-open .timeline-mobile-gallery-nav {
+        visibility: hidden;
+    }
+
     .timeline-layout {
         display: block;
 
