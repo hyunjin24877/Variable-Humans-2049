@@ -356,6 +356,11 @@
 }
 
 @media (max-width: 640px) {
+    .timeline-lightbox-image {
+        height: auto;
+        max-height: 72dvh;
+    }
+
     .timeline-layout {
         display: block;
 
