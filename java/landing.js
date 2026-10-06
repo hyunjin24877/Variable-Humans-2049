@@ -1,7 +1,11 @@
 (() => {
-    const logo = document.getElementById('landing-logo');
+    const landing = document.querySelector('.landing');
     const inputs = ['pointermove', 'pointerdown', 'touchstart', 'wheel', 'keydown', 'click'];
     let exiting = false;
+
+    function showAbout() {
+        location.replace('./about.html');
+    }
 
     function exitLanding() {
         if (exiting) return;
@@ -12,12 +16,15 @@
         }
 
         if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            location.replace('./about.html');
+            showAbout();
             return;
         }
 
-        logo.classList.add('is-exiting');
-        window.setTimeout(() => location.replace('./about.html'), 2500);
+        landing.addEventListener('transitionend', (event) => {
+            if (event.target === landing && event.propertyName === 'opacity') showAbout();
+        });
+        landing.classList.add('is-exiting');
+        window.setTimeout(showAbout, 2700);
     }
 
     for (const input of inputs) {
