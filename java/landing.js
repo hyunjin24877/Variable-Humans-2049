@@ -263,7 +263,7 @@
     measure();
     addEventListener('resize', measure);
 
-    fetch('./img/logo-2.svg')
+    fetch('./img/logo-2.svg?v=e0a4146')
         .then(response => {
             if (!response.ok) throw new Error('Logo could not be loaded');
             return response.text();
