@@ -435,6 +435,10 @@
         display: block;
     }
 
+    .timeline-observations .observation-card {
+        border-bottom: 0;
+    }
+
     .observation-card > img,
     .research-card > img,
     .timeline-card > img {
