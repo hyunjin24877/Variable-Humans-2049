@@ -6,14 +6,29 @@ document.addEventListener("DOMContentLoaded", () => {
   const preview = lightbox.querySelector(".timeline-lightbox-image");
   const previousButton = lightbox.querySelector(".timeline-lightbox-prev");
   const nextButton = lightbox.querySelector(".timeline-lightbox-next");
+  const mobilePreview = window.matchMedia("(max-width: 640px)");
   let imageTrigger = null;
   let galleryImages = [];
   let imageIndex = 0;
 
+  function fitPreview(image = preview) {
+    if (!mobilePreview.matches || !lightbox.open || !image.naturalWidth || !image.naturalHeight) {
+      preview.style.removeProperty("width");
+      return;
+    }
+
+    const styles = getComputedStyle(lightbox);
+    const availableWidth = lightbox.clientWidth - parseFloat(styles.paddingLeft) - parseFloat(styles.paddingRight);
+    const availableHeight = lightbox.clientHeight - parseFloat(styles.paddingTop) - parseFloat(styles.paddingBottom);
+    preview.style.width = `${Math.min(availableWidth, availableHeight * image.naturalWidth / image.naturalHeight)}px`;
+  }
+
   function renderImage() {
     const image = galleryImages[imageIndex];
+    preview.style.removeProperty("width");
     preview.src = image.currentSrc || image.src;
     preview.alt = image.alt;
+    fitPreview(image);
     previousButton.hidden = nextButton.hidden = galleryImages.length < 2;
     previousButton.disabled = imageIndex === 0;
     nextButton.disabled = imageIndex === galleryImages.length - 1;
@@ -39,8 +54,12 @@ document.addEventListener("DOMContentLoaded", () => {
     imageIndex = galleryImages.indexOf(image);
     renderImage();
     lightbox.showModal();
+    fitPreview(image);
     content.classList.add("is-image-preview-open");
   }
+
+  preview.addEventListener("load", () => fitPreview());
+  window.addEventListener("resize", () => fitPreview());
 
   content.querySelectorAll("img").forEach((image) => {
     // Divide each row in proportion to the original image widths at equal height.

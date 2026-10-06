@@ -356,9 +356,14 @@
 }
 
 @media (max-width: 640px) {
+    .timeline-lightbox {
+        padding: 16px;
+    }
+
     .timeline-lightbox-image {
         height: auto;
-        max-height: 72dvh;
+        max-width: calc(100vw - 32px);
+        max-height: calc(100dvh - 32px);
     }
 
     .timeline-content.is-image-preview-open .timeline-mobile-gallery-nav {
