@@ -551,6 +551,7 @@ ul.nav-list > li > a {
         flex: 1 1 auto;
         min-width: 0;
         overflow-x: auto;
+        padding-left: var(--mobile-content-inset);
     }
 
     #changefilter {
@@ -581,7 +582,7 @@ ul.nav-list > li > a {
     }
 
     #lnbnav .nav-list > li:first-child > .filter-button {
-        padding-left: var(--mobile-content-inset);
+        padding-left: 0;
     }
 
 
