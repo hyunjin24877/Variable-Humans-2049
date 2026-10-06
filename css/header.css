@@ -607,7 +607,7 @@ button:disabled {
 
     #header h1 {
         left: 50%;
-        width: clamp(94px, calc(100vw - 226px), 140px);
+        width: clamp(88px, calc(100vw - 240px), 120px);
         transform: translate(-50%, -50%);
     }
 
@@ -618,9 +618,9 @@ button:disabled {
     }
 
     .language-toggle {
-        width: 52px;
-        font-size: 14px;
-        line-height: 14px;
+        width: 60px;
+        font-size: 16px;
+        line-height: 16px;
     }
 
     .search-item::before {

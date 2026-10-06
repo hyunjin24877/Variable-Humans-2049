@@ -288,7 +288,6 @@
 }
 
 .about-section h2 {
-
     margin: 0 0 16px;
     padding-top: 20px;
 
@@ -297,6 +296,7 @@
     font-family: "pretendard", sans-serif;
     font-size: 20px;
     font-weight: 500;
+    line-height: 26px;
 }
 
 .about-section p {
@@ -513,8 +513,10 @@
         padding: 16px var(--mobile-content-inset) 0;
     }
 
-    #overview h2 {
-        margin-bottom: 12px;
+    .about-section h2 {
+        margin-bottom: 8px;
+        padding-top: 0;
+        border-top: 0;
     }
 
     .detail-arrow {

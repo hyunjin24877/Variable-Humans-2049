@@ -1,3 +1,13 @@
+html,
+body {
+    scrollbar-width: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    display: none;
+}
+
 /* Centered image preview */
 .timeline-image-trigger {
     cursor: zoom-in;
@@ -402,7 +412,45 @@
     }
 
     .timeline-section {
-        padding: 16px var(--mobile-content-inset) 0;
+        --timeline-photo-caption-gap: 8px; /* 사진 → 사진 아래 짧은 설명 */
+        --timeline-card-caption-gap: 15px; /* 사진 → 카드 안 설명 */
+        --timeline-card-caption-height: auto; /* 카드 설명 영역의 최소 높이 */
+        --timeline-card-caption-bottom: 20px; /* 카드 설명 아래 여백 */
+        --timeline-caption-text-gap: 12px; /* 짧은 설명 → 이어지는 줄글 */
+        --timeline-photo-text-gap: 12px; /* 사진 → 바로 이어지는 줄글 */
+        padding: 12px var(--mobile-content-inset) 0;
+    }
+
+    .timeline-section-title {
+        margin-bottom: 12px;
+    }
+
+    .timeline-block {
+        --timeline-subtitle-photo-gap: 8px; /* 모바일 소제목과 사진 사이 간격: 이 값만 조정 */
+        margin-top: 16px;
+        padding: 16px 0 12px;
+        border-top: 0;
+    }
+
+    .timeline-block h2 {
+        margin-bottom: var(--timeline-subtitle-photo-gap);
+    }
+
+    .timeline-block-plain {
+        margin-top: 0;
+        padding-top: 0;
+    }
+
+    .timeline-gallery + .timeline-description {
+        margin-top: var(--timeline-photo-text-gap);
+    }
+
+    .timeline-block:has(> .timeline-gallery-caption):has(+ .timeline-description) {
+        padding-bottom: 0;
+    }
+
+    .timeline-block:has(> .timeline-gallery-caption) + .timeline-description {
+        margin-top: var(--timeline-caption-text-gap);
     }
 
     .timeline-section:last-of-type {
@@ -460,14 +508,17 @@
     .observation-card figcaption,
     .research-card figcaption {
         margin-top: 0;
-        min-height: 150px;
-        padding: 20px var(--mobile-content-inset) 40px;
+        min-height: var(--timeline-card-caption-height);
+        padding: var(--timeline-card-caption-gap) var(--mobile-content-inset) var(--timeline-card-caption-bottom);
     }
 
     .timeline-gallery-caption {
-        margin-top: 5px;
-        margin-right: 0;
-        margin-left: 0;
+        margin: 0;
+        padding: var(--timeline-photo-caption-gap) 0 0;
+    }
+
+    .timeline-section > .timeline-block:last-child:has(> .timeline-gallery-caption) {
+        padding-bottom: var(--timeline-card-caption-bottom);
     }
 
     .timeline-mobile-gallery-nav {

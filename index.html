@@ -8,24 +8,19 @@
         * { box-sizing: border-box; }
         html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: #fff; }
         .landing { position: fixed; inset: 0; overflow: hidden; display: grid; place-items: center; }
-        .landing svg { width: 100%; height: 100%; overflow: hidden; }
-        .burst-flash { position: fixed; inset: 0; background: #fff; opacity: 0; pointer-events: none; }
-        .skip { position: fixed; left: 16px; bottom: 16px; padding: 10px; color: #000; background: #fff; transform: translateY(150%); }
-        .skip:focus { transform: none; }
+        .landing-logo { display: block; width: min(76vw, 108.53dvh); height: auto; }
+        .landing-logo.is-exiting { animation: logo-blink 8s ease-in-out forwards; }
+        @keyframes logo-blink {
+            0%, 12%, 48%, 78% { opacity: 1; }
+            30%, 64%, 100% { opacity: 0; }
+        }
     </style>
 </head>
 <body>
     <main class="landing" aria-label="Variable Humans">
-        <svg id="stage" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <g id="logo-space">
-                <image id="logo-fallback" href="./img/logo-2.svg?v=e0a4146" width="565.44" height="130.26"/>
-                <g id="pieces"></g>
-            </g>
-        </svg>
+        <img id="landing-logo" class="landing-logo" src="./img/logo-2.svg?v=e0a4146" alt="Variable Humans">
     </main>
-    <div id="burst-flash" class="burst-flash" aria-hidden="true"></div>
-    <a class="skip" href="./about.html">About 바로 보기</a>
-    <noscript><style>.skip { transform: none; }</style></noscript>
+    <noscript><a href="./about.html">About 바로 보기</a></noscript>
     <script src="./java/landing.js"></script>
 </body>
 </html>
