@@ -196,8 +196,11 @@
     overflow-x: hidden;
     overscroll-behavior: auto;
     scroll-behavior: smooth;
-    scrollbar-width: thin;
-    scrollbar-color: #000 #fff;
+    scrollbar-width: none;
+}
+
+.timeline-content::-webkit-scrollbar {
+    display: none;
 }
 
 .timeline-section {
@@ -290,11 +293,6 @@
     max-width: 100%;
     object-fit: contain;
     object-position: left center;
-}
-
-.observation-card img.observation-photo-flipped,
-.timeline-lightbox-image.observation-photo-flipped {
-    transform: scaleX(-1);
 }
 
 .observation-card figcaption,

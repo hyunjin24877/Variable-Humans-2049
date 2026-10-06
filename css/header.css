@@ -29,11 +29,11 @@
 
 #header h1 {
     position: absolute;
-    top: 50%;
+    top: calc(50% + 4px);
     left: 50%;
 
-    width: 140px;
-    height: 30px;
+    width: auto;
+    height: 35px;
 
     margin: 0;
     padding: 0;
