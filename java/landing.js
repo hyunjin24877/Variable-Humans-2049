@@ -17,7 +17,7 @@
         }
 
         logo.classList.add('is-exiting');
-        window.setTimeout(() => location.replace('./about.html'), 8000);
+        window.setTimeout(() => location.replace('./about.html'), 2500);
     }
 
     for (const input of inputs) {
