@@ -513,6 +513,10 @@
         padding: 16px var(--mobile-content-inset) 0;
     }
 
+    #overview h2 {
+        margin-bottom: 12px;
+    }
+
     .detail-arrow {
         bottom: 12px;
     }
